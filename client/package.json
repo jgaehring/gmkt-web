@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-lazyload": "^2.2.7",
     "react-slick": "^0.14.11",
     "slick-carousel": "^1.6.0"
   },
