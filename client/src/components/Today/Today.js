@@ -20,23 +20,75 @@ class Today extends Component {
     fetch('http://localhost:8888/api/today/products')
       .then(resp => resp.json())
       .then((data) => {
-        const allProducts = data.products;
-        const seasonalProducts = allProducts.filter((product) => product.seasonal)
-        this.setState({
-          products: {
-            loading: false,
-            allProducts: allProducts,
-            seasonalProducts: seasonalProducts
-          }
-        })
+        if (data.products.length > 0) {
+          const allProducts = data.products;
+          const seasonalProducts = allProducts.filter( (product) => product.seasonal );
+          this.setState({
+            products: {
+              loading: false,
+              allProducts: allProducts,
+              seasonalProducts: seasonalProducts
+            }
+          })
+        } else {
+          const prevDate = data.previous_date;
+          fetch('http://localhost:8888/api/products/date/' + prevDate)
+            .then(resp => resp.json())
+            .then((data) => {
+              const allProducts = data.products.filter(product => product.seasonal);
+              const seasonalProducts = allProducts.filter( (product) => product.seasonal );
+              this.setState({
+                products: {
+                  loading: false,
+                  allProducts: allProducts,
+                  seasonalProducts: seasonalProducts
+                }
+              })
+            })
+        }
+        // console.log(data);
+        // const allProducts = data.products;
+        // const seasonalProducts = allProducts.filter((product) => {
+        //   if (product.seasonal) {
+        //     return product.seasonal;
+        //   } else {
+        //     let prevSeasonalProducts;
+        //     const prevDate = data.previous_date;
+        //     fetch('http://localhost:8888/api/products/date/' + prevDate)
+        //       .then(resp => resp.json())
+        //       .then((data) => {
+        //         prevSeasonalProducts = data.products.filter(product => product.seasonal);
+        //         return prevSeasonalProducts;
+        //       })
+        //   }
+        // }
+        //   // if (product.seasonal) ?
+        //   // product.seasonal :
+        //   // const prevDate =
+        // );
+        // this.setState({
+        //   products: {
+        //     loading: false,
+        //     allProducts: allProducts,
+        //     seasonalProducts: seasonalProducts
+        //   }
+        // })
       });
 
     fetch('http://localhost:8888/api/today/producers')
       .then(resp => resp.json())
       .then((data) => {
         const allProducers = data.producers;
-        const inProducers = allProducers.filter( (producer) => producer.presences[0].present);
-        const outProducers = allProducers.filter( (producer) => !producer.presences[0].present);
+        const inProducers = allProducers.filter( (producer) =>
+          (producer.presences) ?
+          producer.presences[0].present :
+          null
+        );
+        const outProducers = allProducers.filter( (producer) =>
+          (producer.presences) ?
+          !producer.presences[0].present :
+          null
+        );
         this.setState({
           attendance: {
             loading: false,
