@@ -1,0 +1,23 @@
+.Seasonal {
+  width: 50%;
+  float: right;
+}
+
+.Attendance {
+  width: 50%;
+  float: right;
+}
+
+.seasonal-product {
+  width: 25%;
+  float: left;
+}
+
+.producer {
+  width: 25%;
+  float: left;
+}
+
+img {
+  width: 95%
+}
