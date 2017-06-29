@@ -1,17 +1,6 @@
-.Seasonal {
-  width: 50%;
-  float: right;
-}
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
-.Attendance {
-  width: 50%;
-  float: right;
-}
-
-.seasonal-product {
-  width: 25%;
-  float: left;
-}
 
 .producer {
   width: 25%;
@@ -20,4 +9,8 @@
 
 img {
   width: 95%
+}
+
+.slick-prev:before, .slick-next:before {
+  color: black;
 }
