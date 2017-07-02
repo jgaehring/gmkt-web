@@ -3,14 +3,13 @@ const app = express();
 const router = express.Router();
 const request = require('request');
 
-const api = require('../marketday')
+const api = require('./api')
 
+// CREATING A BASIC VIEW IN .EJS DISPLAYING ALL PRODUCERS IN A LIST
 api.callAPI('/market_day/producers').then(function(response) {
-  // console.log("RESPONSE:",response);
   let producerList = response.producers
     .map( (e) => e.name )
     .reduce( (acc, val) => acc = acc + val + "\n", "");
-  // console.log("PRODUCERS LIST: \n", producerList);
   router.get('/', function(req, res, next) {
     res.render('index', { title: "Express", producers: producerList });
   });
@@ -18,6 +17,8 @@ api.callAPI('/market_day/producers').then(function(response) {
   console.log('Handle rejected promise ('+reason+') here.');
 });
 
+
+// REPLICATING ROUTES FROM ORIGINAL GREENMARKET API
 router.get('/api/markets', (req, res) => {
   api.callAPI('/markets').then( response => {
     res.send(response)

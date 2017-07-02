@@ -46,33 +46,6 @@ class Today extends Component {
               })
             })
         }
-        // console.log(data);
-        // const allProducts = data.products;
-        // const seasonalProducts = allProducts.filter((product) => {
-        //   if (product.seasonal) {
-        //     return product.seasonal;
-        //   } else {
-        //     let prevSeasonalProducts;
-        //     const prevDate = data.previous_date;
-        //     fetch('http://localhost:8888/api/products/date/' + prevDate)
-        //       .then(resp => resp.json())
-        //       .then((data) => {
-        //         prevSeasonalProducts = data.products.filter(product => product.seasonal);
-        //         return prevSeasonalProducts;
-        //       })
-        //   }
-        // }
-        //   // if (product.seasonal) ?
-        //   // product.seasonal :
-        //   // const prevDate =
-        // );
-        // this.setState({
-        //   products: {
-        //     loading: false,
-        //     allProducts: allProducts,
-        //     seasonalProducts: seasonalProducts
-        //   }
-        // })
       });
 
     fetch('http://localhost:8888/api/today/producers')
