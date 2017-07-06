@@ -62,12 +62,14 @@ class Today extends Component {
           !producer.presences[0].present :
           null
         );
+        const expected = allProducers.filter( (producer) => !(producer.presences) );
         this.setState({
           attendance: {
             loading: false,
             allProducers: allProducers,
             inProducers: inProducers,
-            outProducers: outProducers
+            outProducers: outProducers,
+            expected: expected
           }
         })
       });
@@ -95,7 +97,8 @@ class Today extends Component {
           <Attendance
                 allProducers={this.state.attendance.allProducers}
                 inProducers={this.state.attendance.inProducers}
-                outProducers={this.state.attendance.outProducers} />
+                outProducers={this.state.attendance.outProducers}
+                expected={this.state.attendance.expected} />
         }
       </div>
     );
