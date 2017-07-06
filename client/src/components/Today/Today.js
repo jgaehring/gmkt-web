@@ -16,38 +16,38 @@ class Today extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch('http://localhost:8888/api/today/products')
-      .then(resp => resp.json())
-      .then((data) => {
-        if (data.products.length > 0) {
-          const allProducts = data.products;
-          const seasonalProducts = allProducts.filter( (product) => product.seasonal );
-          this.setState({
-            products: {
-              loading: false,
-              allProducts: allProducts,
-              seasonalProducts: seasonalProducts
-            }
-          })
-        } else {
-          const prevDate = data.previous_date;
-          fetch('http://localhost:8888/api/products/date/' + prevDate)
-            .then(resp => resp.json())
-            .then((data) => {
-              const allProducts = data.products.filter(product => product.seasonal);
-              const seasonalProducts = allProducts.filter( (product) => product.seasonal );
-              this.setState({
-                products: {
-                  loading: false,
-                  allProducts: allProducts,
-                  seasonalProducts: seasonalProducts
-                }
-              })
-            })
-        }
-      });
+  setProductState(allProducts, seasonalProducts) {
+    this.setState({
+      products: {
+        loading: false,
+        allProducts: allProducts,
+        seasonalProducts: seasonalProducts
+      }
+    })
+  }
 
+  fetchSeasonalProducts() {
+    fetch('http://localhost:8888/api/today/products')
+    .then(resp => resp.json())
+    .then((data) => {
+      if (data.products.length > 0) {
+        const allProducts = data.products;
+        const seasonalProducts = allProducts.filter( (product) => product.seasonal );
+        this.setProductState(allProducts, seasonalProducts);
+      } else {
+        const prevDate = data.previous_date;
+        fetch('http://localhost:8888/api/products/date/' + prevDate)
+        .then(resp => resp.json())
+        .then((data) => {
+          const allProducts = data.products.filter(product => product.seasonal);
+          const seasonalProducts = allProducts.filter( (product) => product.seasonal );
+          this.setProductState(allProducts, seasonalProducts)
+        })
+      }
+    });
+  }
+
+  fetchTodaysProducers() {
     fetch('http://localhost:8888/api/today/producers')
       .then(resp => resp.json())
       .then((data) => {
@@ -71,7 +71,11 @@ class Today extends Component {
           }
         })
       });
+  }
 
+  componentDidMount() {
+    this.fetchSeasonalProducts();
+    this.fetchTodaysProducers();
   }
 
   render() {
