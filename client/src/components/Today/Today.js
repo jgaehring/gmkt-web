@@ -27,7 +27,7 @@ class Today extends Component {
   }
 
   fetchSeasonalProducts() {
-    fetch('http://localhost:8888/api/today/products')
+    fetch('/api/v1/market_day/products')
     .then(resp => resp.json())
     .then((data) => {
       if (data.products.length > 0) {
@@ -36,7 +36,7 @@ class Today extends Component {
         this.setProductState(allProducts, seasonalProducts);
       } else {
         const prevDate = data.previous_date;
-        fetch('http://localhost:8888/api/products/date/' + prevDate)
+        fetch('/api/v1/market_day/products?date=' + prevDate)
         .then(resp => resp.json())
         .then((data) => {
           const allProducts = data.products.filter(product => product.seasonal);
@@ -48,7 +48,7 @@ class Today extends Component {
   }
 
   fetchTodaysProducers() {
-    fetch('http://localhost:8888/api/today/producers')
+    fetch('/api/v1/market_day/producers')
       .then(resp => resp.json())
       .then((data) => {
         const allProducers = data.producers;

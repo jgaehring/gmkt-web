@@ -1,3 +1,3 @@
 # Greenmarket Web App
 
-A web client for the Union Square Greenmarket App, written with the React framework, plus a Node.js proxy server for redirecting calls to the Greenmarket API and adding CORS support.
+A web client for the Union Square Greenmarket App, written with the React framework. Express Proxy Server now at [gmkt-web-server](https://github.com/jgaehring/gmkt-web-server).
