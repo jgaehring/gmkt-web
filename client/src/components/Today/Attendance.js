@@ -1,14 +1,18 @@
 import React from 'react';
-import InProducers from './InProducers'
-import Expected from './Expected'
-import OutProducers from './OutProducers'
+import Producers from './Producers'
 
 function Attendance(props) {
   return (
     <div className="Attendance">
-      <InProducers inProducers={props.inProducers} />
-      <Expected expected={props.expected} />
-      <OutProducers outProducers={props.outProducers} />
+      <Producers
+        producers={props.inProducers}
+        headingText="Producers in Attendance Today"/>
+      <Producers
+        producers={props.expected}
+        headingText="Expected Producers"/>
+      <Producers
+        producers={props.outProducers}
+        headingText="Producers Out Today" />
     </div>
   )
 }

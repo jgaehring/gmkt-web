@@ -104,9 +104,9 @@ class Today extends Component {
   }
 
   componentDidMount() {
+    this.fetchMarketInfo();
     this.fetchSeasonalProducts();
     this.fetchTodaysProducers();
-    this.fetchMarketInfo();
   }
 
   render() {
