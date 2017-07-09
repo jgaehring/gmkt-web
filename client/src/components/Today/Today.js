@@ -9,7 +9,9 @@ class Today extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      market: {},
+      market: {
+        loading: true,
+      },
       products: {
         loading: true,
       },
@@ -42,14 +44,19 @@ class Today extends Component {
     fetch('/api/v1/market_day')
     .then( (resp) => resp.json())
     .then( (data) => {
+      const date = data.date;
       const todaysDate = this.getTodaysDate();
-      const marketDay = ( data.date === todaysDate ? true : false);
+      const marketToday = ( date === todaysDate ? true : false);
+      const marketDay = new Date(date).getDay();
       this.setState({
         market: {
-          marketDay: marketDay,
+          loading: false,
+          date: date,
+          marketToday: marketToday,
           prevDate: data.previous_date,
           nextDate: data.next_date,
-          nextDateObject: new Date(data.next_date)
+          nextDateObject: new Date(data.next_date),
+          marketDay: marketDay
         }
       })
     })
@@ -114,12 +121,12 @@ class Today extends Component {
     return (
       <div className="Today">
         {
-          (this.state.market.marketDay) ?
+          (this.state.market.marketToday) ?
           <h1>Today's Market</h1> :
           <h1>
             The next market will be on&nbsp;
             <Moment
-              date={this.state.market.nextDateObject}
+              date={this.state.market.date}
               format={'dddd, MMMM Do'} />
 
           </h1>
@@ -144,10 +151,10 @@ class Today extends Component {
         }
 
         {
-          (this.state.products.loading) ?
+          (this.state.market.loading) ?
           <p>Fetching...</p> :
-            <MapViewer />
-          }
+            <MapViewer marketDay={this.state.market.marketDay} />
+        }
 
       </div>
     );
