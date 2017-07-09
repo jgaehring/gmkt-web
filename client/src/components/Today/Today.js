@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 import Attendance from './Attendance';
 import Seasonal from './Seasonal';
+import MapViewer from './Map';
 import './Today.css'
 
 class Today extends Component {
@@ -141,6 +142,13 @@ class Today extends Component {
                 outProducers={this.state.attendance.outProducers}
                 expected={this.state.attendance.expected} />
         }
+
+        {
+          (this.state.products.loading) ?
+          <p>Fetching...</p> :
+            <MapViewer />
+          }
+
       </div>
     );
   }
