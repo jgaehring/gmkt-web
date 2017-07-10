@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 import PDF from 'react-pdf-js';
+import "./Map.css";
 
 
 class MapViewer extends Component {
@@ -57,17 +58,17 @@ class MapViewer extends Component {
         <div>
           <div className="modal-opener" onClick={this.openModal} >
             <h3>Open Map</h3>
-            <PDF className="thumbnail-map" file="/img/unsq-mon.pdf" />
+            <PDF className="PDF thumbnail-map" file="/img/unsq-mon.pdf" />
 
           </div>
-          <Modal
+          <Modal className="Modal modal-content"
             isOpen={this.state.modalIsOpen}
             // onAfterOpen={afterOpenFn}
             onRequestClose={this.closeModal}
             // closeTimeoutMS={n}
             // style={outline: "2px solid red"}
             contentLabel="Modal">
-            <PDF className="modal-map" file="/img/unsq-mon.pdf"/>
+            <PDF className="PDF modal-map" file="/img/unsq-mon.pdf"/>
           </Modal>
         </div>
       </div>

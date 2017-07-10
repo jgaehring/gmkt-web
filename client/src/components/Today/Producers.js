@@ -1,5 +1,6 @@
 import React from 'react';
 import Producer from './Producer';
+import './Producers.css';
 
 function Producers(props) {
 
@@ -10,7 +11,9 @@ function Producers(props) {
 
   const ProducersBody =
     (props.producers.length > 0) ?
-    props.producers.map(producer => <Producer producer={producer} key={producer.id} />) :
+    props.producers.map(producer => <Producer
+        producer={producer}
+        key={producer.id} />) :
     null;
 
   return (

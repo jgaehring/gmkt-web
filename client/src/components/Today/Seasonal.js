@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import "./Seasonal.css";
 
 function Seasonal(props) {
   const settings = {

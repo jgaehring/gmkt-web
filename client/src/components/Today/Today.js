@@ -136,6 +136,7 @@ class Today extends Component {
           (this.state.products.loading) ?
           <p>Fetching...</p> :
           <Seasonal
+                className="Seasonal"
                 allProducts={this.state.products.allProducts}
                 seasonalProducts={this.state.products.seasonalProducts}/>
         }
@@ -144,6 +145,7 @@ class Today extends Component {
           (this.state.attendance.loading) ?
           <p>Fetching...</p> :
           <Attendance
+                className="Attendance"
                 allProducers={this.state.attendance.allProducers}
                 inProducers={this.state.attendance.inProducers}
                 outProducers={this.state.attendance.outProducers}
@@ -153,7 +155,7 @@ class Today extends Component {
         {
           (this.state.market.loading) ?
           <p>Fetching...</p> :
-            <MapViewer marketDay={this.state.market.marketDay} />
+            <MapViewer className="Map-Viewer" marketDay={this.state.market.marketDay} />
         }
 
       </div>

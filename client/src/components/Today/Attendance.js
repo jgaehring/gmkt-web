@@ -1,5 +1,6 @@
 import React from 'react';
 import Producers from './Producers'
+import "./Attendance.css";
 
 function Attendance(props) {
   return (
