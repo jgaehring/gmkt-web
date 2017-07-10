@@ -8,6 +8,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-lazyload": "^2.2.7",
+    "react-modal": "^2.2.1",
     "react-moment": "^0.3.0",
     "react-pdf-js": "^1.0.35",
     "react-slick": "^0.14.11",
