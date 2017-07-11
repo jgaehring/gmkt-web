@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
-import Attendance from './Attendance';
-import Seasonal from './Seasonal';
-import MapViewer from './Map';
-import './Today.css'
+import Attendance from 'Today/Attendance';
+import Seasonal from 'Today/Seasonal';
+import MapViewer from 'Today/Map';
+import 'Today.css'
 
 class Today extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       market: {
         loading: true,

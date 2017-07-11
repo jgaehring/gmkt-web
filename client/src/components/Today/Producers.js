@@ -1,6 +1,6 @@
 import React from 'react';
-import Producer from './Producer';
-import './Producers.css';
+import Producer from 'Today/Producer';
+import 'Today/Producers.css';
 
 function Producers(props) {
 

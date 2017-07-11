@@ -1,6 +1,6 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
-import "./Producer.css"
+import "Today/Producer.css"
 
 function Producer(props) {
   return (

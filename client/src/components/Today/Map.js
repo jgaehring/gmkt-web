@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 import PDF from 'react-pdf-js';
-import "./Map.css";
+import "Today/Map.css";
 
 
 class MapViewer extends Component {
