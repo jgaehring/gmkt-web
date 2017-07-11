@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
-import Attendance from 'Today/Attendance';
-import Seasonal from 'Today/Seasonal';
-import MapViewer from 'Today/Map';
-import 'Today.css'
+import TodayHeader from 'today/TodayHeader'
+import Attendance from 'today/Attendance';
+import Seasonal from 'today/Seasonal';
+import MapViewer from 'today/Map';
 
 class Today extends Component {
   constructor() {
@@ -16,6 +15,9 @@ class Today extends Component {
         loading: true,
       },
       attendance: {
+        loading: true,
+      },
+      map: {
         loading: true,
       }
     };
@@ -40,6 +42,18 @@ class Today extends Component {
     return yyyy + '-' + mm + '-' + dd;
   }
 
+  getCurrentMap() {
+    if (this.state.market.marketDay === 0) {
+      return "/img/unsq-mon.pdf";
+    } else if (this.state.market.marketDay === 2) {
+      return "/img/unsq-wed.pdf";
+    } else if (this.state.market.marketDay === 4) {
+      return "/img/unsq-fri.pdf";
+    } else if (this.state.market.marketDay === 5) {
+      return "/img/unsq-sat.pdf";
+    };
+  }
+
   fetchMarketInfo() {
     fetch('/api/v1/market_day')
     .then( (resp) => resp.json())
@@ -57,6 +71,14 @@ class Today extends Component {
           nextDate: data.next_date,
           nextDateObject: new Date(data.next_date),
           marketDay: marketDay
+        }
+      })
+    })
+    .then( () => {
+      this.setState({
+        map: {
+          loading: false,
+          currentMap: this.getCurrentMap()
         }
       })
     })
@@ -118,48 +140,38 @@ class Today extends Component {
   }
 
   render() {
-    return (
-      <div className="Today">
-        {
-          (this.state.market.marketToday) ?
-          <h1>Today's Market</h1> :
-          <h1>
-            The next market will be on&nbsp;
-            <Moment
-              date={this.state.market.date}
-              format={'dddd, MMMM Do'} />
+    if ( this.state.market.loading ||
+      this.state.attendance.loading ||
+      this.state.products.loading ||
+      this.state.map.loading ) {
+        return <p>Loading...</p>
+      } else {
 
-          </h1>
-        }
+        return (
+          <div className="Today">
 
-        {
-          (this.state.products.loading) ?
-          <p>Fetching...</p> :
-          <Seasonal
-                className="Seasonal"
-                allProducts={this.state.products.allProducts}
-                seasonalProducts={this.state.products.seasonalProducts}/>
-        }
+            <TodayHeader
+              marketToday={this.state.market.marketToday}
+              date={this.state.market.date} />
 
-        {
-          (this.state.attendance.loading) ?
-          <p>Fetching...</p> :
-          <Attendance
-                className="Attendance"
-                allProducers={this.state.attendance.allProducers}
-                inProducers={this.state.attendance.inProducers}
-                outProducers={this.state.attendance.outProducers}
-                expected={this.state.attendance.expected} />
-        }
+            <Seasonal
+              className="Seasonal"
+              allProducts={this.state.products.allProducts}
+              seasonalProducts={this.state.products.seasonalProducts}/>
 
-        {
-          (this.state.market.loading) ?
-          <p>Fetching...</p> :
-            <MapViewer className="Map-Viewer" marketDay={this.state.market.marketDay} />
-        }
+            <Attendance
+              className="Attendance"
+              allProducers={this.state.attendance.allProducers}
+              inProducers={this.state.attendance.inProducers}
+              outProducers={this.state.attendance.outProducers}
+              expected={this.state.attendance.expected} />
 
-      </div>
-    );
+            <MapViewer className="Map-Viewer" marketDay={this.state.market.marketDay}
+              currentMap={this.state.map.currentMap} />
+
+            </div>
+          );
+      }
   }
 };
 

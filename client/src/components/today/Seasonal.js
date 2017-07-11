@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
-import "Today/Seasonal.css";
+import Thumbnail from 'modules/Thumbnail'
+import "today/Seasonal.css";
 
 function Seasonal(props) {
   const settings = {
@@ -18,8 +19,11 @@ function Seasonal(props) {
         {props.seasonalProducts.map( (product) => {
           return (
             <div className="seasonal-product" key={product.id}>
-              <img className="thumnail product-thumbnail" src={product.pic_small_url} alt={product.name}/>
-              <p>{product.name}</p>
+              <Thumbnail
+                imgURL={product.pic_small_url}
+                altText={product.name}
+                thumbnailText={product.name}
+                />
             </div>
           )
         })}

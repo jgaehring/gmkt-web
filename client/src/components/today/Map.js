@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 import PDF from 'react-pdf-js';
-import "Today/Map.css";
+import "today/Map.css";
 
 
 class MapViewer extends Component {
@@ -9,11 +9,10 @@ class MapViewer extends Component {
     super(props);
 
     this.state = {
-      loading: true,
       modalIsOpen: false,
     };
 
-    this.openModal = this.openModal.bind(this)
+    this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -25,52 +24,24 @@ class MapViewer extends Component {
     this.setState({modalIsOpen: false});
   }
 
-  setCurrentMap() {
-    if (this.state.marketDay === 0) {
-      this.setState({
-        currentMap: "/img/unsq-mon.pdf"
-      });
-    } else if (this.state.marketDay === 2) {
-      this.setState({
-        currentMap: "/img/unsq-wed.pdf"
-      });
-    } else if (this.state.marketDay === 4) {
-      this.setState({
-        currentMap: "/img/unsq-fri.pdf"
-      });
-    } else if (this.state.marketDay === 5) {
-      this.setState({
-        currentMap: "/img/unsq-sat.pdf"
-      });
-    };
-  }
-
-  componentDidMount() {
-    this.setState({
-      loading: false
-    })
-    this.setCurrentMap();
-  }
-
   render() {
     return (
       <div>
-        <div>
-          <div className="modal-opener" onClick={this.openModal} >
-            <h3>Open Map</h3>
-            <PDF className="PDF thumbnail-map" file="/img/unsq-mon.pdf" />
+        <div className="modal-opener" onClick={this.openModal} >
+          <h3>Open Map</h3>
+          <PDF className="PDF thumbnail-map" file={this.props.currentMap} />
 
-          </div>
-          <Modal className="Modal modal-content"
-            isOpen={this.state.modalIsOpen}
-            // onAfterOpen={afterOpenFn}
-            onRequestClose={this.closeModal}
-            // closeTimeoutMS={n}
-            // style={outline: "2px solid red"}
-            contentLabel="Modal">
-            <PDF className="PDF modal-map" file="/img/unsq-mon.pdf"/>
-          </Modal>
         </div>
+        <Modal className="Modal modal-content"
+          isOpen={this.state.modalIsOpen}
+          // onAfterOpen={afterOpenFn}
+          onRequestClose={this.closeModal}
+          // onClick={this.closeModal}
+          // closeTimeoutMS={n}
+          style={{outline: "2px solid red"}}
+          contentLabel="Modal">
+          <PDF className="PDF modal-map" file={this.props.currentMap} onClick={this.closeModal} />
+        </Modal>
       </div>
     )
   }

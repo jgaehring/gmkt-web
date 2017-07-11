@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
-import Today from 'Today';
-import 'App.css';
+import Page from 'modules/Page'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+      pageLayout: {
+        default: "TODAY"
+      }
+    }
+  }
+
+  componentDidMount() {
+    if (!this.state.pageLayout.current) {
+      this.setState({
+        loading: false,
+        pageLayout: {
+          default: "TODAY",
+          current: this.state.pageLayout.default
+        }
+      })
+    }
+  }
   render() {
     return (
+      this.state.loading ?
+      <p>Loading...</p> :
       <div className="App">
-        <Today />
+        <Page currentPage={this.state.pageLayout.current}/>
       </div>
     );
   }
