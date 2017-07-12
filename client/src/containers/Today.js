@@ -47,7 +47,7 @@ class Today extends Component {
     if (this.state.market.marketDay === 0) {
       return "/img/unsq-mon.pdf";
     } else if (this.state.market.marketDay === 2) {
-      return "http://www.grownyc.org/files/gmkt/usqmaps/unsq-mon.pdf";
+      return "/img/unsq-wed.pdf";
     } else if (this.state.market.marketDay === 4) {
       return "/img/unsq-fri.pdf";
     } else if (this.state.market.marketDay === 5) {

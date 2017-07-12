@@ -28,8 +28,8 @@ class MapViewer extends Component {
   render() {
     return (
       <Section>
-        <div className="modal-opener" onClick={this.openModal} >
-          <h3>Open Map</h3>
+        <div className="modal-target" onClick={this.openModal} >
+          <h2>Today's Map</h2>
           <PDF className="PDF thumbnail-map" file={this.props.currentMap} />
 
         </div>

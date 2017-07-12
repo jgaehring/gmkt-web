@@ -1,11 +1,25 @@
+.modal-target {
+  width: 45%;
+  display: inline-block;
+  text-align: center;
+}
+.thumbnail-map {
+  width: 100%;
+  display: inline-block;
+}
+
 .modal-content {
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90vw;
+  transform: translate(-50%, 0);
+  width: 90vw;
 }
 
 .modal-map {
+  width: 100%;
+  max-height: 100%
+}
+
+.ReactModal__Overlay--after-open {
   overflow-y: scroll;
 }
