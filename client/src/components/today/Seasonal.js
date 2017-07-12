@@ -7,14 +7,13 @@ import "today/Seasonal.css";
 function Seasonal(props) {
   const settings = {
     accesibility: true,
-    slidesToShow: 7,
-    slidesToScroll: 7,
+    slidesToShow: 6,
+    slidesToScroll: 6,
     lazyLoad: true,
     arrows: true,
-    dots: true,
   }
   return (
-    <Section className="Seasonal">
+    <Section className="Seasonal-List">
       <h2>What's in Season</h2>
       <Slider className="seasonal-slider" {...settings}>
         {props.seasonalProducts.map( (product) => {

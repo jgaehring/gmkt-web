@@ -1,30 +1,19 @@
 .hero {
-  background-image: url('../../media/gorzynski.jpg');
+  /*background-image: url('../../media/gorzynski2.png');*/
+  background-color: #8cac88;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 42rem;
+  height: 40rem;
 }
 
 .logo {
-  margin-top: 10rem;
+  margin-top: 6rem;
   margin-bottom: 2rem;
   width: 15rem;
 }
 
 h1 {
   color: white;
-  margin-bottom: 1rem
-}
-
-@media screen and (max-width: 800px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-}
-@media screen and (min-width: 800px) {
-  h1 {
-    font-size: 3rem;
-  }
 }
 
 input {
