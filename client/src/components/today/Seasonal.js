@@ -4,11 +4,23 @@ import Section from 'modules/Section'
 import Thumbnail from 'modules/Thumbnail'
 import "today/Seasonal.css";
 
+function getSlideNumber() {
+  if (window.matchMedia("(min-width: 1500px)").matches) {
+    return 8;
+  } else if (window.matchMedia("(min-width: 900px)").matches) {
+    return 6;
+  } else {
+    return 4;
+  }
+}
+
 function Seasonal(props) {
+  let slideNumber = getSlideNumber();
+
   const settings = {
     accesibility: true,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: slideNumber,
+    slidesToScroll: slideNumber,
     lazyLoad: true,
     arrows: true,
   }

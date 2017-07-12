@@ -1,8 +1,33 @@
 .Producer-List {
-  padding-top: 4rem;
+  padding-top: 2rem;
   padding-bottom: 4rem;
 }
 
 .Producer-List h2 {
   margin-bottom: 2rem;
+}
+
+.Producer-List .Thumbnail {
+  height: 10rem;
+}
+
+@media (min-width: 600px) {
+  .Producer-List .Thumbnail {
+    height: 12rem;
+  }
+}
+@media (min-width: 800px) {
+  .Producer-List .Thumbnail {
+    height: 15rem;
+  }
+}
+@media (min-width: 1200px) {
+  .Producer-List .Thumbnail {
+    height: 18rem;
+  }
+}
+@media (min-width: 1500px) {
+  .Producer-List .Thumbnail {
+    height: 24rem;
+  }
 }
