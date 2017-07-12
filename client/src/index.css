@@ -1,5 +1,75 @@
+html, button, input, textarea {
+  font-size: 62.5%;
+}
+@media (min-width: 400px) {
+  html, button, input, textarea {
+    font-size: 75%;
+  }
+}
+@media (min-width: 600px) {
+  html, button, input, textarea {
+    font-size: 87.5%;
+  }
+}
+@media (min-width: 900px) {
+  html, button, input, textarea {
+    font-size: 100%;
+  }
+}
+@media (min-width: 900px) {
+  html, button, input, textarea {
+    font-size: 100%;
+  }
+}
+@media (min-width: 900px) {
+  html, button, input, textarea {
+    font-size: 100%;
+  }
+}
+
 body {
+  text-align: center;
+}
+
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, figure, input, textarea,
+p, blockquote, th, td {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Headland One', serif;
+}
+
+p, ul, ul, ol, li, th, td,
+blockquote, pre, form, input, textarea {
+  font-family: 'Lato', sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+address, caption, cite, dfn, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+caption, th {
+  text-align: left;
+}
+
+q:before, q:after {
+  content: "";
+}
+
+abbr, acronym {
+  border: 0;
 }

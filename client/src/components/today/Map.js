@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
 import PDF from 'react-pdf-js';
+import Section from 'modules/Section'
 import "today/Map.css";
 
 
@@ -26,7 +27,7 @@ class MapViewer extends Component {
 
   render() {
     return (
-      <div>
+      <Section>
         <div className="modal-opener" onClick={this.openModal} >
           <h3>Open Map</h3>
           <PDF className="PDF thumbnail-map" file={this.props.currentMap} />
@@ -42,7 +43,7 @@ class MapViewer extends Component {
           contentLabel="Modal">
           <PDF className="PDF modal-map" file={this.props.currentMap} onClick={this.closeModal} />
         </Modal>
-      </div>
+      </Section>
     )
   }
 

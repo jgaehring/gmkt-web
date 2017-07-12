@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import Section from 'modules/Section'
 import Thumbnail from 'modules/Thumbnail'
 import "today/Seasonal.css";
 
@@ -13,7 +14,7 @@ function Seasonal(props) {
     dots: true,
   }
   return (
-    <div className="Seasonal">
+    <Section className="Seasonal">
       <h2>What's in Season</h2>
       <Slider className="seasonal-slider" {...settings}>
         {props.seasonalProducts.map( (product) => {
@@ -28,7 +29,7 @@ function Seasonal(props) {
           )
         })}
       </Slider>
-    </div>
+    </Section>
   )
 }
 

@@ -1,10 +1,9 @@
 import React from 'react';
 import Producers from 'today/Producers'
-import "today/Attendance.css";
 
 function Attendance(props) {
   return (
-    <div className="Attendance">
+    <div className="Attendance" style={{outline: "red"}}>
       <Producers
         producers={props.inProducers}
         headingText="Producers in Attendance Today"/>

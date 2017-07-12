@@ -1,0 +1,39 @@
+.hero {
+  background-image: url('../../media/gorzynski.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 42rem;
+}
+
+.logo {
+  margin-top: 10rem;
+  margin-bottom: 2rem;
+  width: 15rem;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 1rem
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+input {
+  height: 2em;
+  width: 50%;
+  font-size: 1rem;
+  opacity: 0.6;
+  border-radius: 0.25rem;
+  border-style: none;
+  padding: 0.25rem;
+  text-align: center;
+}
