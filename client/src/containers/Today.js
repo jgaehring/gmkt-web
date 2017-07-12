@@ -3,6 +3,7 @@ import TodayHeader from 'today/TodayHeader'
 import Attendance from 'today/Attendance';
 import Seasonal from 'today/Seasonal';
 import MapViewer from 'today/Map';
+import Spinner from 'modules/Spinner'
 
 class Today extends Component {
   constructor() {
@@ -144,7 +145,7 @@ class Today extends Component {
       this.state.attendance.loading ||
       this.state.products.loading ||
       this.state.map.loading ) {
-        return <p>Loading...</p>
+        return <Spinner />
       } else {
 
         return (

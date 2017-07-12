@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       this.state.loading ?
-      <p>Loading...</p> :
+      null :
       <div className="App">
         <Page currentPage={this.state.pageLayout.current}/>
       </div>
