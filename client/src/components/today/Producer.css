@@ -1,4 +1,17 @@
 .Producer {
   width: 25%;
+  max-width: 600px;
   float: left;
+}
+
+@media (min-width: 1200px) {
+  .Producer {
+    width: 16.6666667%
+  }
+}
+
+@media (min-width: 1800px) {
+  .Producer {
+    width: 12.5%
+  }
 }
