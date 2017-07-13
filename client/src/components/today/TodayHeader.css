@@ -1,6 +1,6 @@
 .hero {
-  /*background-image: url('../../media/gorzynski2.png');*/
-  background-color: #8cac88;
+  background-image: url('../../media/gorzynski2.png');
+  /*background-color: #8cac88;*/
   background-size: cover;
   background-repeat: no-repeat;
   height: 40rem;
@@ -10,6 +10,15 @@
   margin-top: 6rem;
   margin-bottom: 2rem;
   width: 15rem;
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    height: 45rem;
+  }
+  .logo {
+    margin-top: 10rem;
+  }
 }
 
 h1 {

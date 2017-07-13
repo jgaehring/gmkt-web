@@ -15,7 +15,7 @@ function TodayHeader(props) {
           (props.marketToday) ?
           <h1>Today's Greenmarket<br/>at Union Square</h1> :
           <h1>
-            The next market will be on&nbsp;<br/>
+            The next market will be on&nbsp;
             <Moment date={props.date} format={'dddd, MMMM Do'} />
           </h1>
         }
