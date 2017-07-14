@@ -1,9 +1,11 @@
 .hero {
-  background-image: url('../../media/gorzynski2.png');
-  /*background-color: #8cac88;*/
+  /*background-image: url('../../media/gorzynski2.png');*/
+  background-color: #8cac88;
   background-size: cover;
   background-repeat: no-repeat;
   height: 40rem;
+  z-index: 1000;
+  position: relative;
 }
 
 .logo {

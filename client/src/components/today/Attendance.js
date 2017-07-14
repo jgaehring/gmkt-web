@@ -3,7 +3,7 @@ import Producers from 'today/Producers'
 
 function Attendance(props) {
   return (
-    <div className="Attendance" style={{outline: "red"}}>
+    <div id="Attendance">
       <Producers
         producers={props.inProducers}
         headingText="Producers in Attendance Today"/>

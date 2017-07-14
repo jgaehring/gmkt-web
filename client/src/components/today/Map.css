@@ -1,4 +1,4 @@
-.Map {
+#Map {
   margin-bottom: 2rem;
 }
 
@@ -32,6 +32,7 @@
 
 .ReactModal__Overlay--after-open {
   overflow-y: scroll;
+  z-index: 101;
 }
 
 .close-icon {

@@ -5,11 +5,11 @@
   color: black;
 }
 
-.Seasonal-List {
+#Seasonal-List {
   padding-top: 6rem;
   padding-bottom: 4rem;
 }
 
-.Seasonal-List h2 {
+#Seasonal-List h2 {
   margin-bottom: 2rem;
 }

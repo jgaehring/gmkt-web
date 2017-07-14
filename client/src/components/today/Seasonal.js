@@ -25,7 +25,7 @@ function Seasonal(props) {
     arrows: true,
   }
   return (
-    <Section className="Seasonal-List">
+    <Section id="Seasonal-List">
       <h2>What's in Season</h2>
       <Slider className="seasonal-slider" {...settings}>
         {props.seasonalProducts.map( (product) => {

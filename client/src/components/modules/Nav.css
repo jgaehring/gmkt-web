@@ -1,0 +1,38 @@
+.Nav {
+  width: 100%;
+  padding: .5rem 0;
+  background-color: #8cac88;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sticky-nav {
+  position: fixed;
+  z-index: 100;
+}
+
+.Nav ul {
+  display: inline-flex;
+  flex: 0 0 33%;
+  justify-content: space-between;
+}
+
+.Nav li {
+  display: inline-flex;
+  margin: 0 1rem;
+}
+
+.Nav a {
+  /*font-family: 'Headland One';*/
+  weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
