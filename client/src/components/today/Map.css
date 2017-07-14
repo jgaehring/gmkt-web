@@ -1,7 +1,12 @@
+.Map {
+  margin-bottom: 2rem;
+}
+
 .modal-target {
   width: 45%;
   display: inline-block;
   text-align: center;
+  cursor: zoom-in;
 }
 .thumbnail-map {
   width: 100%;
@@ -13,13 +18,34 @@
   left: 50%;
   transform: translate(-50%, 0);
   width: 90vw;
+  margin: 2rem 0;
+}
+
+.modal-content:focus {
+  outline: none;
 }
 
 .modal-map {
   width: 100%;
-  max-height: 100%
+  max-height: 100%;
 }
 
 .ReactModal__Overlay--after-open {
   overflow-y: scroll;
+}
+
+.close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: 500ms;
+}
+
+.close-icon:hover {
+  transform: scale(1.25) translate(50%, -50%);
+  transition: 500ms;
+  cursor: pointer;
 }
