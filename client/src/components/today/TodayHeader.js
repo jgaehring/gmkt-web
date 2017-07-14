@@ -41,10 +41,9 @@ function TodayHeader(props) {
                 <Moment date={props.date} format={'dddd, MMMM Do'} />
               </h1>
             }
-            <input type="text" placeholder="Find your favorite farmer..."></input>
           </Section>
         </div>
-      
+
     </div>
 
   )
