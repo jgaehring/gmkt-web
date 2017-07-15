@@ -41,6 +41,8 @@ function TodayHeader(props) {
                 <Moment date={props.date} format={'dddd, MMMM Do'} />
               </h1>
             }
+            <p>Union Square Greenmarket, New York<br/>
+            Open year-round, 8 am - 6 pm, Mon/Wed/Fri/Sat</p>
           </Section>
         </div>
 
