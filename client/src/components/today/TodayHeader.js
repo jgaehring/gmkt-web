@@ -10,7 +10,7 @@ function TodayHeader(props) {
     <div>
       <Nav className="sticky-nav">
         <ul className="nav-left">
-          <li><a href="http://www.grownyc.org">Back go GrowNYC.org</a></li>
+          <li><a href="http://www.grownyc.org">GrowNYC.org</a></li>
         </ul>
         <ul className="nav-right">
           <li><a href="#Seasonal-List">Seasonal</a></li>
@@ -21,7 +21,7 @@ function TodayHeader(props) {
       <div className="hero">
         <Nav>
           <ul className="nav-left">
-            <li><a href="http://www.grownyc.org">Back go GrowNYC.org</a></li>
+            <li><a href="http://www.grownyc.org">GrowNYC.org</a></li>
           </ul>
           <ul className="nav-right">
             <li><a href="#Seasonal-List">Seasonal</a></li>

@@ -3,8 +3,8 @@
   background-color: #8cac88;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 40rem;
-  z-index: 1000;
+  height: 42rem;
+  z-index: 100;
   position: relative;
 }
 
@@ -12,6 +12,12 @@
   margin-top: 6rem;
   margin-bottom: 2rem;
   width: 15rem;
+}
+
+@media (min-width: 400px) {
+  .hero {
+    height: 40rem;
+  }
 }
 
 @media (min-width: 1200px) {
