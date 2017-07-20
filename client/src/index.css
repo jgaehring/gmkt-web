@@ -27,7 +27,7 @@ html, button, input, textarea {
   }
 }
 
-body {
+#root {
   text-align: center;
 }
 

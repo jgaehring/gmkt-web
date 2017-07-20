@@ -1,4 +1,4 @@
-.Nav {
+.MainNav {
   width: 100%;
   padding: .5rem 0;
   background-color: #8cac88;
@@ -11,28 +11,28 @@
   z-index: 10;
 }
 
-.Nav ul {
+.MainNav ul {
   display: inline-flex;
   flex: 0 0 33%;
   justify-content: space-between;
 }
 
-.Nav li {
+.MainNav li {
   display: inline-flex;
   margin: 0 1rem;
 }
 
-.Nav a {
+.MainNav a {
   /*font-family: 'Headland One';*/
   weight: bold;
   color: white;
   text-decoration: none;
 }
 
-.nav-left {
+.MainNav-left {
   justify-content: flex-start;
 }
 
-.nav-right {
+.MainNav-right {
   justify-content: flex-end;
 }

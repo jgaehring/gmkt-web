@@ -1,35 +1,39 @@
 import React, { Component } from 'react';
-import Page from 'modules/Page'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import Today from 'containers/Today';
+import Producer from 'containers/Producer';
+import Product from 'containers/Product';
+import Map from 'containers/Map';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       loading: true,
-      pageLayout: {
-        default: "TODAY"
-      }
     }
   }
 
   componentDidMount() {
-    if (!this.state.pageLayout.current) {
-      this.setState({
-        loading: false,
-        pageLayout: {
-          default: "TODAY",
-          current: this.state.pageLayout.default
-        }
-      })
-    }
+    this.setState({
+      loading: false,
+    })
   }
   render() {
     return (
       this.state.loading ?
       null :
-      <div className="App">
-        <Page currentPage={this.state.pageLayout.current}/>
-      </div>
+      <Router >
+        <div className="App">
+          <Route exact path="/" component={Today}/>
+          <Route path="/today" component={Today}/>
+          <Route path="/producers" component={Producer}/>
+          <Route path="/products" component={Product}/>
+          <Route path="/maps" component={Map}/>
+        </div>
+      </Router>
     );
   }
 }

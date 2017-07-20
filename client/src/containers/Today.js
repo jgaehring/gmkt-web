@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from 'modules/Header'
 import TodayHeader from 'today/TodayHeader'
 import Attendance from 'today/Attendance';
 import Seasonal from 'today/Seasonal';
@@ -133,9 +134,13 @@ class Today extends Component {
         return (
           <div className="Today">
 
-            <TodayHeader
-              marketToday={this.state.market.marketToday}
-              date={this.state.market.date} />
+            <Header>
+              <TodayHeader
+                marketToday={this.state.market.marketToday}
+                date={this.state.market.date} />
+
+            </Header>
+
 
             <Seasonal
               className="Seasonal"
