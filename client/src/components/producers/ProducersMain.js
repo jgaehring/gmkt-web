@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Spinner from 'modules/Spinner'
-import Header from 'modules/Header';
+import MainHeader from './MainHeader.js'
+import CurrentProducers from './CurrentProducers.js'
 
 class ProducersMain extends Component {
   constructor() {
@@ -44,11 +45,11 @@ class ProducersMain extends Component {
       return <Spinner />
     } else {
       return (
-        <Header>
-          <h1>Producers Page</h1>
-        </Header>
+        <div>
+          <MainHeader />
+          <CurrentProducers currentProducers={this.state.currentProducers}/>
+        </div>
       )
-
     }
   }
 }
