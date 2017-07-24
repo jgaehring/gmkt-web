@@ -18,9 +18,10 @@ class ProducersMain extends Component {
         const currentProducers = data.producers.filter(producer => {
           let isCurrent = false;
           const current = producer.seasons.forEach(season => {
+            const start = new Date(season.start_date);
             const end = new Date(season.end_date);
             const today = new Date();
-            if (end >= today) {
+            if (start <= today && end >= today) {
               isCurrent = true;
             }
           })

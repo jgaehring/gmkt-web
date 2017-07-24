@@ -1,0 +1,62 @@
+.Producer-Line {
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  padding: .25rem;
+}
+
+.Producer-Line div {
+  display: inline-block;
+  height: inherit;
+}
+
+.Producer-Line .icon {
+  width: 3rem;
+}
+
+.Producer-Line .icon img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.Producer-Line .name {
+  width: 15rem;
+  text-align: left;
+  margin-left: .5rem;
+}
+
+.Producer-Line .summary {
+  width: 25rem;
+  text-align: left;
+}
+
+.Producer-Line p {
+  line-height: 1.5rem;
+  margin-top: .75rem;
+}
+.Producer-Line:hover {
+  background-color: #eee;
+}
+
+.Producer-Days li {
+  display: inline-block;
+  line-height: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: .75rem;
+  border-radius: 50%;
+  color: white;
+}
+
+.Producer-Days .mon {
+  background-color: #00999f;
+}
+.Producer-Days .wed {
+  background-color: #4e8645;
+}
+.Producer-Days .fri {
+  background-color: #d51969;
+}
+.Producer-Days .sat {
+  background-color: #f7931e;
+}
