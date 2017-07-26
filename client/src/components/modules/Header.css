@@ -3,7 +3,6 @@
   background-color: #8cac88;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 42rem;
   z-index: 100;
   position: relative;
 }
@@ -14,16 +13,7 @@
   width: 15rem;
 }
 
-@media (min-width: 400px) {
-  .hero {
-    height: 40rem;
-  }
-}
-
 @media (min-width: 1200px) {
-  .hero {
-    height: 45rem;
-  }
   .logo {
     margin-top: 10rem;
   }

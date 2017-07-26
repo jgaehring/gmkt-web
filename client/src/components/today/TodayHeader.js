@@ -1,7 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
 import Section from 'modules/Section';
-import './TodayHeader.css';
 import logo from 'media/GrowNYC-Circle-large-2065px.png';
 
 function TodayHeader(props) {

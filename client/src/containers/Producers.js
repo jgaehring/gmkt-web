@@ -1,9 +1,21 @@
 import React, {Component} from 'react';
+import {Route} from 'react-router-dom';
 import Spinner from 'modules/Spinner'
-import MainHeader from './MainHeader.js'
-import CurrentProducers from './CurrentProducers.js'
+import ProducersHeader from 'components/producers/ProducersHeader.js'
+import ProducersList from 'components/producers/ProducersList.js'
+import Header from 'modules/Header';
 
-class ProducersMain extends Component {
+class ProducerProfile extends Component {
+  render() {
+    return (
+      <Header>
+        <h1>Producer Profile</h1>
+      </Header>
+    )
+  }
+}
+
+class AllProducers extends Component {
   constructor() {
     super();
     this.state = {
@@ -47,12 +59,27 @@ class ProducersMain extends Component {
     } else {
       return (
         <div>
-          <MainHeader />
-          <CurrentProducers currentProducers={this.state.currentProducers}/>
+          <ProducersHeader />
+          <ProducersList currentProducers={this.state.currentProducers}/>
         </div>
       )
     }
   }
 }
 
-export default ProducersMain;
+class Producers extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+  render() {
+    return (
+      <div>
+        <Route exact path='/producers' component={AllProducers}/>
+        <Route path='/producers/profile' component={ProducerProfile}/>
+      </div>
+    )
+  }
+}
+
+export default Producers;

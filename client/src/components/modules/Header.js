@@ -2,7 +2,7 @@ import React from 'react';
 import MainNav from 'modules/MainNav';
 import './Header.css';
 
-function TodayHeader(props) {
+function Header(props) {
   return (
     <div>
       <MainNav className="sticky-nav" />
@@ -16,4 +16,4 @@ function TodayHeader(props) {
   )
 }
 
-export default TodayHeader;
+export default Header;

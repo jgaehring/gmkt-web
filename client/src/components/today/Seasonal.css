@@ -4,12 +4,3 @@
 .slick-prev:before, .slick-next:before {
   color: black;
 }
-
-#Seasonal-List {
-  padding-top: 6rem;
-  padding-bottom: 4rem;
-}
-
-#Seasonal-List h2 {
-  margin-bottom: 2rem;
-}
