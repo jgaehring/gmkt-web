@@ -1,8 +1,29 @@
 .Producer-Line {
-  display: flex;
+  display: inline-flex;
   width: 100%;
+  max-width: 52rem;
   height: 3rem;
   padding: .25rem;
+  justify-content: center;
+}
+
+.Producer-Line p {
+  line-height: 1.5rem;
+  margin-top: .75rem;
+}
+
+.Producer-Line:hover {
+  background-color: #eee;
+}
+
+.Producer-Line.heading p {
+  font-family: 'Headland One', serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.Producer-Line.heading:hover {
+  background-color: white;
 }
 
 .Producer-Line div {
@@ -11,7 +32,7 @@
 }
 
 .Producer-Line .icon {
-  width: 3rem;
+  flex: 0 0 3rem;
 }
 
 .Producer-Line .icon img {
@@ -20,22 +41,28 @@
 }
 
 .Producer-Line .name {
-  width: 15rem;
+  flex: 0 1 15rem;
   text-align: left;
   margin-left: .5rem;
 }
 
 .Producer-Line .summary {
-  width: 25rem;
+  flex: 0 1 25rem;
   text-align: left;
 }
 
-.Producer-Line p {
-  line-height: 1.5rem;
-  margin-top: .75rem;
+.Producer-Line .summary {
+  display: none;
 }
-.Producer-Line:hover {
-  background-color: #eee;
+
+@media (min-width: 750px) {
+  .Producer-Line .summary {
+    display: inline-block;
+  }
+}
+
+.Producer-Days {
+  flex: 0 0 6rem;
 }
 
 .Producer-Days li {

@@ -89,7 +89,28 @@ function ProducerLine(props) {
 function CurrentProducers(props) {
   return (
     <Section>
-      <h2>All Current Producers</h2>
+      <div className="Producer-Line heading">
+        <div className="icon">
+          <p>
+            Type
+          </p>
+        </div>
+        <div className="name">
+          <p>
+            Name
+          </p>
+        </div>
+        <div className="summary">
+          <p>
+            Product Summary
+          </p>
+        </div>
+        <div className="Producer-Days">
+          <p>
+            Days
+          </p>
+        </div>
+      </div>
       {
         props.currentProducers.map(producer => {
           return (
