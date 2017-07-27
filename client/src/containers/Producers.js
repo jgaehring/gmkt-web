@@ -4,13 +4,16 @@ import Spinner from 'modules/Spinner';
 import ProducersHeader from 'producers/ProducersHeader';
 import ProducersList from 'producers/ProducersList';
 import ProfileHeader from 'producers/ProfileHeader';
+import Products from 'producers/Products';
 
 class ProducerProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
-      id: props.match.params.id
+      id: props.match.params.id,
+      producer: [],
+      products: []
     };
   }
 
@@ -25,8 +28,30 @@ class ProducerProfile extends Component {
       })
   }
 
+  fetchProducts() {
+    fetch('/api/v1/market_day/products?producer_id=' + this.state.id)
+      .then(resp => resp.json())
+      .then((data) => {
+        if (data.products.length > 0) {
+          this.setState({
+            products: data.products
+          })
+        } else {
+          const prevDate = data.previous_date;
+          fetch('/api/v1/market_day/products?producer_id=' + this.state.id + ';date=' + prevDate)
+            .then(resp => resp.json())
+            .then(data => {
+              this.setState({
+                products: data.products
+              })
+            })
+        }
+      })
+  }
+
   componentDidMount() {
-    this.fetchProfile()
+    this.fetchProfile();
+    this.fetchProducts();
   }
 
   render() {
@@ -36,9 +61,11 @@ class ProducerProfile extends Component {
       return (
         <div>
           <ProfileHeader producer={this.state.producer}/>
+          <Products products={this.state.products}/>
         </div>
       )
-    }  }
+    }
+  }
 }
 
 class AllProducers extends Component {

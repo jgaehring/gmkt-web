@@ -3,7 +3,7 @@ import Section from 'modules/Section';
 import Header from 'modules/Header';
 import logo from 'media/GrowNYC-Circle-large-2065px.png';
 
-function MainHeader(props) {
+function ProducersHeader(props) {
   return (
     <Header>
       <Section className="Producers-Header">
@@ -18,4 +18,4 @@ function MainHeader(props) {
   )
 }
 
-export default MainHeader;
+export default ProducersHeader;

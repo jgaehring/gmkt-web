@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import Today from 'containers/Today';
 import Producers from 'containers/Producers';
-import Product from 'containers/Product';
+import Products from 'containers/Products';
 import Map from 'containers/Map';
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
           <Route exact path="/" component={Today}/>
           <Route path="/today" component={Today}/>
           <Route path="/producers" component={Producers}/>
-          <Route path="/products" component={Product}/>
+          <Route path="/products" component={Products}/>
           <Route path="/maps" component={Map}/>
         </div>
       </Router>
