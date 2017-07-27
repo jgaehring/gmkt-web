@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Section from 'modules/Section';
 import ProducerDays from 'producers/ProducerDays';
 import getTypeIcon from 'media/product-types/getTypeIcon.js';
@@ -15,7 +16,7 @@ function shortenSummary(summary) {
 function ProducerLine(props) {
   const icon = getTypeIcon(props.producer.main_type);
   return (
-    <div className="Producer-Line">
+    <Link to={"producers/" + props.producer.id} className="Producer-Line">
       <div className="icon">
         <img src={icon} alt="type" />
       </div>
@@ -28,7 +29,7 @@ function ProducerLine(props) {
         </p>
       </div>
       <ProducerDays seasons={props.producer.seasons}/>
-    </div>
+    </Link>
   );
 }
 

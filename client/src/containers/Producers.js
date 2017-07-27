@@ -1,18 +1,44 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
-import Spinner from 'modules/Spinner'
-import ProducersHeader from 'components/producers/ProducersHeader.js'
-import ProducersList from 'components/producers/ProducersList.js'
-import Header from 'modules/Header';
+import Spinner from 'modules/Spinner';
+import ProducersHeader from 'producers/ProducersHeader';
+import ProducersList from 'producers/ProducersList';
+import ProfileHeader from 'producers/ProfileHeader';
 
 class ProducerProfile extends Component {
-  render() {
-    return (
-      <Header>
-        <h1>Producer Profile</h1>
-      </Header>
-    )
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      id: props.match.params.id
+    };
   }
+
+  fetchProfile() {
+    fetch('/api/v1/producers/' + this.state.id)
+      .then(resp => resp.json())
+      .then((data) => {
+        this.setState({
+          loading: false,
+          producer: data.producer
+        })
+      })
+  }
+
+  componentDidMount() {
+    this.fetchProfile()
+  }
+
+  render() {
+    if (this.state.loading) {
+      return <Spinner />
+    } else {
+      return (
+        <div>
+          <ProfileHeader producer={this.state.producer}/>
+        </div>
+      )
+    }  }
 }
 
 class AllProducers extends Component {
@@ -76,7 +102,7 @@ class Producers extends Component {
     return (
       <div>
         <Route exact path='/producers' component={AllProducers}/>
-        <Route path='/producers/profile' component={ProducerProfile}/>
+        <Route path='/producers/:id' component={ProducerProfile}/>
       </div>
     )
   }
