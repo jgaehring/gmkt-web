@@ -19,7 +19,7 @@
   }
 }
 
-.hero h1, .hero p {
+.hero, .hero a {
   color: white;
 }
 
