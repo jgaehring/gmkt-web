@@ -19,7 +19,7 @@ function ProducerDays(props) {
   const day = (num, cls, str) => {
     if (producerDays.includes(num)) {
       return (<li className={cls}>{str}</li>)
-    } else {
+    } else if (props.addGaps) {
       return (<li>&nbsp;</li>)
     }
   }

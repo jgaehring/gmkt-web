@@ -28,7 +28,7 @@ function ProducerLine(props) {
           {shortenSummary(props.producer.product_summary)}
         </p>
       </div>
-      <ProducerDays seasons={props.producer.seasons}/>
+      <ProducerDays seasons={props.producer.seasons} addGaps />
     </Link>
   );
 }
