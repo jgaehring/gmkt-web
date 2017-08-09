@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import Slider from 'react-slick';
 import Section from 'modules/Section'
 import Thumbnail from 'modules/Thumbnail'
@@ -30,13 +31,13 @@ function Seasonal(props) {
       <Slider className="seasonal-slider" {...settings}>
         {props.seasonalProducts.map( (product) => {
           return (
-            <div className="seasonal-product" key={product.id}>
+            <Link to={"/products/" + product.id} className="seasonal-product" key={product.id}>
               <Thumbnail
                 imgURL={product.pic_small_url}
                 altText={product.name}
                 thumbnailText={product.name}
                 />
-            </div>
+            </Link>
           )
         })}
       </Slider>

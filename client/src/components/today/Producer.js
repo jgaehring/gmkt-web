@@ -18,7 +18,7 @@ function Producer(props) {
   const type = props.producer.main_type;
   const imgURL = getProducerImage(pic, type);
   return (
-    <Link to={"producers/" + props.producer.id} className="Producer">
+    <Link to={"/producers/" + props.producer.id} className="Producer">
       <LazyLoad height={"20vw"} offset={500} once>
         <Thumbnail
             imgURL={imgURL}

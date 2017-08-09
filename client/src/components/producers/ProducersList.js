@@ -16,7 +16,7 @@ function shortenSummary(summary) {
 function ProducerLine(props) {
   const icon = getTypeIcon(props.producer.main_type);
   return (
-    <Link to={"producers/" + props.producer.id} className="Producer-Line">
+    <Link to={"/producers/" + props.producer.id} className="Producer-Line">
       <div className="icon">
         <img src={icon} alt="type" />
       </div>
