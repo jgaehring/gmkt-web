@@ -13,7 +13,7 @@ function getProductImage(pic, type) {
 
 function ProfileHeader(props) {
   const pic = props.product.pic_url;
-  const type = props.product.main_type;
+  const type = props.product.type;
   const imgURL = getProductImage(pic, type);
   return (
     <Header>
