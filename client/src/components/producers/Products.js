@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Section from 'modules/Section';
-import getTypeIcon from 'media/product-types/getTypeIcon.js';
+import getTypeIcon from 'media/product-types/getTypeIcon';
+import 'producers/Products.css'
 
 function ProductRow(props) {
   const icon = getTypeIcon(props.product.type);
   return (
-    <Link to={"/products/" + props.product.id} className="Producer-Row">
+    <Link to={"/products/" + props.product.id} className="Product-Row">
       <div className="icon">
         <img src={icon} alt="type" />
       </div>
@@ -20,7 +21,7 @@ function ProductRow(props) {
 function Products(props) {
   return (
     <Section>
-      <div className="Producer-Line heading">
+      <div className="Product-Row heading">
         <div className="icon">
           <p>Type</p>
         </div>

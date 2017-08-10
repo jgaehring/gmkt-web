@@ -1,0 +1,62 @@
+.Product-Row {
+  display: inline-flex;
+  width: 100%;
+  max-width: 52rem;
+  height: 3rem;
+  padding: .25rem;
+  justify-content: center;
+}
+
+.Product-Row p {
+  line-height: 1.5rem;
+  margin-top: .75rem;
+}
+
+.Product-Row:hover {
+  background-color: #eee;
+}
+
+.Product-Row.heading p {
+  font-family: 'Headland One', serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.Product-Row.heading:hover {
+  background-color: white;
+}
+
+.Product-Row div {
+  display: inline-block;
+  height: inherit;
+}
+
+.Product-Row .icon {
+  flex: 0 0 3rem;
+}
+
+.Product-Row .icon img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.Product-Row .name {
+  flex: 0 1 15rem;
+  text-align: left;
+  margin-left: .5rem;
+}
+
+.Product-Row .summary {
+  flex: 0 1 25rem;
+  text-align: left;
+}
+
+.Product-Row .summary {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .Product-Row .summary {
+    display: inline-block;
+  }
+}
