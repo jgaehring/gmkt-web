@@ -42,7 +42,7 @@ class ProductRow extends Component {
         return (
           <div className="toggle-container">
             <div onClick={this.toggleVarieties} className="toggle" title="Show Varieties">
-              <ChevronDown className="chevron" />
+              <ChevronDown className="chevron chevron-down" />
             </div>
           </div>
         )
@@ -50,7 +50,7 @@ class ProductRow extends Component {
         return (
           <div className="toggle-container">
             <div onClick={this.toggleVarieties} className="toggle" title="Hide Varieties">
-              <ChevronUp className="chevron" />
+              <ChevronUp className="chevron chevron-up" />
             </div>
           </div>
         )
@@ -123,7 +123,6 @@ function Products(props) {
           as of&nbsp;
           <Moment date={props.date} format={'dddd, MMMM Do'} />
         </h4>
-
       </header>
       {
         varietiesByProduct.map( product => {

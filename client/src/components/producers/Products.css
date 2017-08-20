@@ -78,3 +78,29 @@
     display: inline-block;
   }
 }
+
+.Product-Row .chevron-down:hover {
+  animation: .3s chevron-down ease-in-out;
+}
+
+@keyframes chevron-down {
+  50% {
+    transform: translateY(.25rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
+
+.Product-Row .chevron-up:hover {
+  animation: .3s chevron-up ease-in-out;
+}
+
+@keyframes chevron-up {
+  50% {
+    transform: translateY(-.25rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
