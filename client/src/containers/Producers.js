@@ -34,7 +34,8 @@ class ProducerProfile extends Component {
       .then((data) => {
         if (data.products.length > 0) {
           this.setState({
-            products: data.products
+            products: data.products,
+            productDate: data.date
           })
         } else {
           const prevDate = data.previous_date;
@@ -42,7 +43,8 @@ class ProducerProfile extends Component {
             .then(resp => resp.json())
             .then(data => {
               this.setState({
-                products: data.products
+                products: data.products,
+                productDate: prevDate
               })
             })
         }
@@ -61,7 +63,7 @@ class ProducerProfile extends Component {
       return (
         <div>
           <ProfileHeader producer={this.state.producer}/>
-          <Products products={this.state.products}/>
+          <Products products={this.state.products} date={this.state.productDate}/>
         </div>
       )
     }

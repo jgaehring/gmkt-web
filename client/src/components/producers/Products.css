@@ -3,6 +3,10 @@
   flex-flow: row wrap;
 }
 
+.Product-List header {
+  flex-basis: 100%;
+}
+
 .product-row-container {
   display: inline-flex;
   flex-flow: row wrap;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Moment from 'react-moment';
 import Section from 'modules/Section';
 import getTypeIcon from 'media/product-types/getTypeIcon';
 import ChevronDown from 'react-icons/lib/fa/chevron-down';
@@ -84,27 +85,11 @@ class ProductRow extends Component {
                 return null
             }
           })
-
         }
       </div>
     )
   }
-
 }
-
-// function ProductRow(props) {
-//   const icon = getTypeIcon(props.product.type);
-//   return (
-//     <Link to={"/products/" + props.product.id} className="Product-Row">
-//       <div className="icon">
-//         <img src={icon} alt="type" />
-//       </div>
-//       <div className="name">
-//         <p>{props.product.name}</p>
-//       </div>
-//     </Link>
-//   )
-// }
 
 function Products(props) {
   let varietiesByProduct = [];
@@ -128,9 +113,18 @@ function Products(props) {
       })
     }
   })
-  console.log("varietiesByProduct: ", varietiesByProduct);
   return (
     <Section className="Product-List">
+      <header>
+        <h2>
+          Current Products
+        </h2>
+        <h4>
+          as of&nbsp;
+          <Moment date={props.date} format={'dddd, MMMM Do'} />
+        </h4>
+
+      </header>
       {
         varietiesByProduct.map( product => {
           return (
