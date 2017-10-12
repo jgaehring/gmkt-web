@@ -14,6 +14,7 @@
     "react-pdf-js": "^1.0.35",
     "react-slick": "^0.14.11",
     "slick-carousel": "^1.6.0",
+    "sw-precache": "^5.2.0",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -21,9 +22,10 @@
   },
   "scripts": {
     "start": "NODE_PATH=src:src/components:src/containers react-scripts start",
-    "build": "NODE_PATH=src:src/components:src/containers react-scripts build",
+    "build": "NODE_PATH=src:src/components:src/containers react-scripts build && sw-precache --config=sw-precache-config.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://unsqgreenmarket.grownyc.org"
+  "proxy": "http://unsqgreenmarket.grownyc.org",
+  "homepage": "/"
 }
