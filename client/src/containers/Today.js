@@ -24,16 +24,6 @@ class Today extends Component {
     };
   }
 
-  setProductState(allProducts, seasonalProducts) {
-    this.setState({
-      products: {
-        loading: false,
-        allProducts: allProducts,
-        seasonalProducts: seasonalProducts
-      }
-    })
-  }
-
   getTodaysDate() {
     let yyyy = new Date().getFullYear();
     let mm = new Date().getMonth() + 1;
@@ -86,23 +76,15 @@ class Today extends Component {
   };
 
   fetchSeasonalProducts() {
-    fetch('/api/v1/market_day/products')
+    fetch('/api/v1/products?seasonal=new,peak')
     .then(resp => resp.json())
     .then((data) => {
-      if (data.products.length > 0) {
-        const allProducts = data.products;
-        const seasonalProducts = allProducts.filter( (product) => product.seasonal );
-        this.setProductState(allProducts, seasonalProducts);
-      } else {
-        const prevDate = data.previous_date;
-        fetch('/api/v1/market_day/products?date=' + prevDate)
-        .then(resp => resp.json())
-        .then((data) => {
-          const allProducts = data.products.filter(product => product.seasonal);
-          const seasonalProducts = allProducts.filter( (product) => product.seasonal );
-          this.setProductState(allProducts, seasonalProducts)
-        })
-      }
+      this.setState({
+        products: {
+          loading: false,
+          seasonalProducts: data.products
+        }
+      })
     });
   }
 
