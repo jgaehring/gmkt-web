@@ -39,7 +39,7 @@ class ProducerProfile extends Component {
           })
         } else {
           const prevDate = data.previous_date;
-          fetch('/api/v1/market_day/products?producer_id=' + this.state.id + ';date=' + prevDate)
+          fetch('/api/v1/market_day/products?producer_id=' + this.state.id + '&date=' + prevDate + '&round=down')
             .then(resp => resp.json())
             .then(data => {
               this.setState({
