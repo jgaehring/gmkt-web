@@ -44,8 +44,9 @@ function getTypeName(typeNum) {
 
 function Website(props) {
   if (props.producer.website) {
+    const website = props.producer.website.replace(/[^\x00-\x7F]/, "");
     return (
-      <a href={props.producer.website} target="_blank" rel="noopener noreferrer" title="Website">
+      <a href={website} target="_blank" rel="noopener noreferrer" title="Website">
         <WebIcon />
       </a>
     )
