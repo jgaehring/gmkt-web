@@ -9,17 +9,20 @@
 
 .product-row-container {
   display: inline-flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
   width: 100%
 }
 
 .Product-Row {
-  display: inline-flex;
-  flex-basis: 100%;
-  max-width: 52rem;
+  display: inline-block;
+  /*flex-basis: 100%;*/
+  width: 21.5rem;
   height: 3rem;
   padding: .25rem;
-  justify-content: center;
+  /*justify-content: center;*/
+  text-align: left;
 }
 
 .Product-Row p {
@@ -44,10 +47,11 @@
 .Product-Row div {
   display: inline-block;
   height: inherit;
+  vertical-align: top;
 }
 
 .Product-Row .icon {
-  flex: 0 0 3rem;
+  width: 3rem;
 }
 
 .Product-Row .icon img {
@@ -56,7 +60,7 @@
 }
 
 .Product-Row .name {
-  flex: 0 1 15rem;
+  width: 15rem;
   text-align: left;
   margin-left: .5rem;
 }
