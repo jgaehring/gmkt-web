@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Moment from 'react-moment';
-import Section from 'modules/Section';
 import getTypeIcon from 'media/product-types/getTypeIcon';
 import ChevronDown from 'react-icons/lib/fa/chevron-down';
 import ChevronUp from 'react-icons/lib/fa/chevron-up';
@@ -93,7 +92,7 @@ class ProductRow extends Component {
 
 function Products(props) {
   return (
-    <Section className="Product-List">
+    <div className="Product-List">
       <header>
         <h2>
           Current Products
@@ -110,7 +109,7 @@ function Products(props) {
           )
         })
       }
-    </Section>
+    </div>
   )
 }
 

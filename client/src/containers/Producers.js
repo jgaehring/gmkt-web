@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import Spinner from 'modules/Spinner';
+import Section from 'modules/Section';
 import ProducersHeader from 'producers/ProducersHeader';
 import ProducersList from 'producers/ProducersList';
 import ProfileHeader from 'producers/ProfileHeader';
@@ -88,7 +89,9 @@ class ProducerProfile extends Component {
       return (
         <div>
           <ProfileHeader producer={this.state.producer}/>
-          <Products products={this.state.products} date={this.state.productDate}/>
+          <Section>
+            <Products products={this.state.products} date={this.state.productDate}/>
+          </Section>
         </div>
       )
     }
