@@ -92,27 +92,6 @@ class ProductRow extends Component {
 }
 
 function Products(props) {
-  let varietiesByProduct = [];
-  props.products.forEach(product => {
-    if (!product.variety_of_id && varietiesByProduct.indexOf(product) === -1) {
-      varietiesByProduct.push({
-        id: product.id,
-        name: product.name,
-        type: product.type,
-        varieties: []
-      })
-    } else if (product.variety_of_id) {
-      varietiesByProduct.forEach(parentProduct => {
-        if (product.variety_of_id === parentProduct.id) {
-          parentProduct.varieties.push({
-            id: product.id,
-            name: product.name,
-            type: product.type
-          })
-        }
-      })
-    }
-  })
   return (
     <Section className="Product-List">
       <header>
@@ -125,7 +104,7 @@ function Products(props) {
         </h4>
       </header>
       {
-        varietiesByProduct.map( product => {
+        props.products.map( product => {
           return (
             <ProductRow product={product} key={product.id} />
           )

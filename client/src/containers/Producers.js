@@ -28,13 +28,38 @@ class ProducerProfile extends Component {
       })
   }
 
+  sortVaritiesByProduct(unsortedProducts) {
+    let varietiesByProduct = [];
+    unsortedProducts.forEach(product => {
+      if (!product.variety_of_id && varietiesByProduct.indexOf(product) === -1) {
+        varietiesByProduct.push({
+          id: product.id,
+          name: product.name,
+          type: product.type,
+          varieties: []
+        })
+      } else if (product.variety_of_id) {
+        varietiesByProduct.forEach(parentProduct => {
+          if (product.variety_of_id === parentProduct.id) {
+            parentProduct.varieties.push({
+              id: product.id,
+              name: product.name,
+              type: product.type
+            })
+          }
+        })
+      }
+    });
+    return varietiesByProduct;
+  }
+
   fetchProducts() {
     fetch('/api/v1/market_day/products?producer_id=' + this.state.id)
       .then(resp => resp.json())
       .then((data) => {
         if (data.products.length > 0) {
           this.setState({
-            products: data.products,
+            products: this.sortVaritiesByProduct(data.products),
             productDate: data.date
           })
         } else {
@@ -43,7 +68,7 @@ class ProducerProfile extends Component {
             .then(resp => resp.json())
             .then(data => {
               this.setState({
-                products: data.products,
+                products: this.sortVaritiesByProduct(data.products),
                 productDate: prevDate
               })
             })
