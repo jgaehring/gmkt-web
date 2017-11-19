@@ -6,26 +6,6 @@ import ChevronDown from 'react-icons/lib/fa/chevron-down';
 import ChevronUp from 'react-icons/lib/fa/chevron-up';
 import 'producers/Products.css';
 
-function ToggleWidget() {
-  if (this.props.product.varieties.length > 0 && !this.state.showVarieties) {
-    return (
-      <div className="toggle-container">
-        <div onClick={this.toggleVarieties} className="toggle" title="Show Varieties">
-          <ChevronDown className="chevron chevron-down" />
-        </div>
-      </div>
-    )
-  } else if (this.props.product.varieties.length > 0 && this.state.showVarieties) {
-    return (
-      <div className="toggle-container">
-        <div onClick={this.toggleVarieties} className="toggle" title="Hide Varieties">
-          <ChevronUp className="chevron chevron-up" />
-        </div>
-      </div>
-    )
-  } else { return null }
-}
-
 class ProductRow extends Component {
   constructor(props) {
     super(props);
@@ -56,6 +36,25 @@ class ProductRow extends Component {
   }
 
   render(props) {
+    const toggleWidget = () => {
+      if (this.props.product.varieties.length > 0 && !this.state.showVarieties) {
+        return (
+          <div className="toggle-container">
+            <div onClick={this.toggleVarieties} className="toggle" title="Show Varieties">
+              <ChevronDown className="chevron chevron-down" />
+            </div>
+          </div>
+        )
+      } else if (this.props.product.varieties.length > 0 && this.state.showVarieties) {
+        return (
+          <div className="toggle-container">
+            <div onClick={this.toggleVarieties} className="toggle" title="Hide Varieties">
+              <ChevronUp className="chevron chevron-up" />
+            </div>
+          </div>
+        )
+      } else { return null }
+    }
     return (
       <div className="product-row-container">
         <Link to={"/products/" + this.props.product.id} className="Product-Row parent">
@@ -65,7 +64,7 @@ class ProductRow extends Component {
           <div className="name">
             <p>{this.props.product.name}</p>
           </div>
-          <ToggleWidget />
+          { toggleWidget()}
         </Link>
         {
           this.props.product.varieties.map(variety => {
