@@ -13,7 +13,7 @@ function shortenSummary(summary) {
   }
 }
 
-function ProducerLine(props) {
+function ProducerRow(props) {
   const icon = getTypeIcon(props.producer.main_type);
   return (
     <Link to={"/producers/" + props.producer.id} className="Producer-Line">
@@ -53,7 +53,7 @@ function ProducersList(props) {
       {
         props.currentProducers.map(producer => {
           return (
-            <ProducerLine key={producer.id} producer={producer}/>
+            <ProducerRow key={producer.id} producer={producer}/>
           )
         })
       }

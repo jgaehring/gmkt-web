@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Section from 'modules/Section'
 
-class ProducerLine extends Component {
+class ProducerRow extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -33,7 +33,11 @@ function Producers(props) {
   return (
     <Section>
       {
-        props.presences.map(producer => <ProducerLine id={producer.producer_id} />)
+        props.presences.map( producer =>
+          <ProducerRow
+            id={producer.producer_id}
+            key={ producer.producer_id + "_" + producer.date } />
+        )
       }
     </Section>
   )
