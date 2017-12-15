@@ -6,7 +6,8 @@ class ProducerRow extends Component {
     super(props)
     this.state = {
       id: props.id,
-      producer: []
+      date: props.date,
+      producerInfo: []
     }
   }
 
@@ -15,7 +16,7 @@ class ProducerRow extends Component {
       .then(resp => resp.json())
       .then(data => {
         this.setState({
-          producer: data.producer
+          producerInfo: data.producer
         })
       })
   }
@@ -25,7 +26,7 @@ class ProducerRow extends Component {
   }
 
   render() {
-    return <p>{this.state.producer.name}</p>
+    return <p>{this.state.producerInfo.name + " on " + this.state.date}</p>
   }
 }
 
@@ -36,6 +37,7 @@ function Producers(props) {
         props.presences.map( producer =>
           <ProducerRow
             id={producer.producer_id}
+            date={producer.date}
             key={ producer.producer_id + "_" + producer.date } />
         )
       }

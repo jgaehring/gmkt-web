@@ -13,7 +13,6 @@ class ProductProfile extends Component {
       id: props.match.params.id,
       product: [],
       presences: [],
-      producers: []
     }
   }
 
@@ -34,8 +33,24 @@ class ProductProfile extends Component {
     .then(data => {
       this.setState({
         loading: false,
-        presences: data.product.presences
+        presences: this.filterPresences(data.product.presences)
       })
+    })
+  }
+
+  // Filter producer presences as they come in from the API, taking only the most recent presence for each producer
+  filterPresences(presences) {
+    return presences.filter( (e, i, a) => {
+      const isNewest = a.reduce( (acc, cur) => {
+        if (acc) {
+          const isSameProducer = ( e.producer_id === cur.producer_id )
+          const isNewer = ( e.date >= cur.date )
+          return isSameProducer ? isNewer : acc;
+        } else {
+          return false
+        }
+      }, true);
+      return isNewest;
     })
   }
 
