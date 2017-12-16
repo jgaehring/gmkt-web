@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import ProductsHeader from 'products/ProductsHeader';
 import Spinner from 'modules/Spinner';
 import ProfileHeader from 'products/ProfileHeader';
-import Producers from 'products/Producers';
+import ProducerPresences from 'products/ProducerPresences';
 
 class ProductProfile extends Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class ProductProfile extends Component {
       return (
         <div>
           <ProfileHeader product={this.state.product}/>
-          <Producers presences={this.state.presences}/>
+          <ProducerPresences presences={this.state.presences}/>
         </div>
       )
     }
@@ -96,7 +96,7 @@ class AllProducts extends Component {
 
 }
 
-class Product extends Component {
+class Products extends Component {
   render() {
     return (
       <div>
@@ -107,4 +107,4 @@ class Product extends Component {
   }
 }
 
-export default Product;
+export default Products;

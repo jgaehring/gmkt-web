@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import getTypeIcon from 'media/product-types/getTypeIcon';
 import ChevronDown from 'react-icons/lib/fa/chevron-down';
 import ChevronUp from 'react-icons/lib/fa/chevron-up';
-import 'producers/ProductsList.css';
+import 'producers/ProductPresences.css';
 
 class ProductRow extends Component {
   constructor(props) {
@@ -90,9 +90,9 @@ class ProductRow extends Component {
   }
 }
 
-function ProductsList(props) {
+function ProductPresences(props) {
   return (
-    <div className="Product-List">
+    <div className="Product-Presences">
       <header>
         <h2>
           Current Products
@@ -113,4 +113,4 @@ function ProductsList(props) {
   )
 }
 
-export default ProductsList;
+export default ProductPresences;

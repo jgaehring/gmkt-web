@@ -30,7 +30,7 @@ class ProducerRow extends Component {
   }
 }
 
-function Producers(props) {
+function ProducerPresences(props) {
   return (
     <Section>
       {
@@ -45,4 +45,4 @@ function Producers(props) {
   )
 }
 
-export default Producers;
+export default ProducerPresences;

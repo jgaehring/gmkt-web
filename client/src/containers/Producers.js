@@ -5,7 +5,7 @@ import Section from 'modules/Section';
 import ProducersHeader from 'producers/ProducersHeader';
 import ProducersList from 'producers/ProducersList';
 import ProfileHeader from 'producers/ProfileHeader';
-import ProductsList from 'producers/ProductsList';
+import ProductPresences from 'producers/ProductPresences';
 
 class ProducerProfile extends Component {
   constructor(props) {
@@ -90,7 +90,7 @@ class ProducerProfile extends Component {
         <div>
           <ProfileHeader producer={this.state.producer}/>
           <Section>
-            <ProductsList products={this.state.products} date={this.state.productDate}/>
+            <ProductPresences products={this.state.products} date={this.state.productDate}/>
           </Section>
         </div>
       )

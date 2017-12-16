@@ -1,9 +1,9 @@
-.Product-List {
+.Prouct-Presences {
   display: inline-flex;
   flex-flow: row wrap;
 }
 
-.Product-List header {
+.Prouct-Presences header {
   flex-basis: 100%;
 }
 
