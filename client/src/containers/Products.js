@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
-import ProductsHeader from 'products/ProductsHeader';
 import Spinner from 'modules/Spinner';
+import ProductsHeader from 'products/ProductsHeader';
 import ProfileHeader from 'products/ProfileHeader';
 import ProducerPresences from 'products/ProducerPresences';
 
@@ -14,6 +14,7 @@ class ProductProfile extends Component {
       product: [],
       presences: [],
     }
+    this.fetchProducerInfo = this.fetchProducerInfo.bind(this)
   }
 
   fetchProfile() {
@@ -31,10 +32,8 @@ class ProductProfile extends Component {
     fetch('/api/v1/products/' + this.state.id + '?presences')
     .then(resp => resp.json())
     .then(data => {
-      this.setState({
-        loading: false,
-        presences: this.filterPresences(data.product.presences)
-      })
+      const filteredPresences = this.filterPresences(data.product.presences);
+      return filteredPresences.map(this.fetchProducerInfo);
     })
   }
 
@@ -52,6 +51,21 @@ class ProductProfile extends Component {
       }, true);
       return isNewest;
     })
+  }
+
+  fetchProducerInfo(presence) {
+    fetch('/api/v1/producers/' + presence.producer_id)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState( (prevState) => ({
+          loading: false,
+          presences: prevState.presences.concat({
+            date: presence.date,
+            producer_id: presence.producer_id,
+            producerInfo: data.producer
+          })
+        }))
+      })
   }
 
   componentDidMount() {
@@ -95,16 +109,3 @@ class AllProducts extends Component {
   }
 
 }
-
-class Products extends Component {
-  render() {
-    return (
-      <div>
-        <Route exact path='/products' component={AllProducts}/>
-        <Route path='/products/:id' component={ProductProfile}/>
-      </div>
-    )
-  }
-}
-
-export default Products;

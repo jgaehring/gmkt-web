@@ -1,44 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Section from 'modules/Section'
 
-class ProducerRow extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      id: props.id,
-      date: props.date,
-      producerInfo: []
-    }
-  }
-
-  fetchProducerInfo(id) {
-    fetch('/api/v1/producers/' + id)
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({
-          producerInfo: data.producer
-        })
-      })
-  }
-
-  componentDidMount() {
-    this.fetchProducerInfo(this.state.id);
-  }
-
-  render() {
-    return <p>{this.state.producerInfo.name + " on " + this.state.date}</p>
-  }
+function ProducerRow(props) {
+  return <p>{props.name + " on " + props.date}</p>
 }
 
 function ProducerPresences(props) {
   return (
     <Section>
       {
-        props.presences.map( producer =>
+        props.presences.map( presence =>
           <ProducerRow
-            id={producer.producer_id}
-            date={producer.date}
-            key={ producer.producer_id + "_" + producer.date } />
+            key={ presence.producer_id + "_" + presence.date }
+            date={presence.date}
+            name={presence.producerInfo.name}
+            type={presence.producerInfo.main_type} />
         )
       }
     </Section>
