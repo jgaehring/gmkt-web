@@ -1,11 +1,8 @@
 import React from 'react';
 import Section from 'modules/Section'
 
-function ProducerRow(props) {
-  return <p>{props.name + " on " + props.date}</p>
-}
-
-function ProducerPresences(props) {
+// Renders a list of all producers who have sold the product in the last week
+export default function ProducerPresences(props) {
   return (
     <Section>
       {
@@ -21,4 +18,6 @@ function ProducerPresences(props) {
   )
 }
 
-export default ProducerPresences;
+function ProducerRow(props) {
+  return <p>{props.name + " on " + props.date}</p>
+}
