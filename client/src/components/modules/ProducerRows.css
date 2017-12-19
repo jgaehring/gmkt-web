@@ -1,0 +1,63 @@
+.Producer-Row {
+  display: inline-flex;
+  width: 100%;
+  /* TODO: Get rid of this hardcoded width and let it size to its child nodes */
+  max-width: 52rem;
+  height: 3rem;
+  padding: .25rem;
+  justify-content: center;
+}
+
+.Producer-Row p {
+  line-height: 1.5rem;
+  margin-top: .75rem;
+}
+
+.Producer-Row:hover {
+  background-color: #eee;
+}
+
+.Producer-Row.heading p {
+  font-family: 'Headland One', serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.Producer-Row.heading:hover {
+  background-color: white;
+}
+
+.Producer-Row div {
+  display: inline-block;
+  height: inherit;
+}
+
+.Producer-Row .icon {
+  flex: 0 0 3rem;
+}
+
+.Producer-Row .icon img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.Producer-Row .name {
+  flex: 0 1 15rem;
+  text-align: left;
+  margin-left: .5rem;
+}
+
+.Producer-Row .summary {
+  flex: 0 1 25rem;
+  text-align: left;
+}
+
+.Producer-Row .summary {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .Producer-Row .summary {
+    display: inline-block;
+  }
+}
