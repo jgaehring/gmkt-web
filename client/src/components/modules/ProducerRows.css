@@ -1,11 +1,18 @@
+.Producer-List {
+  display: inline-block;
+  width: auto;
+}
+
 .Producer-Row {
-  display: inline-flex;
-  width: 100%;
-  /* TODO: Get rid of this hardcoded width and let it size to its child nodes */
-  max-width: 52rem;
+  display: block;
   height: 3rem;
   padding: .25rem;
-  justify-content: center;
+}
+
+.Producer-Row div {
+  display: inline-block;
+  height: inherit;
+  vertical-align: middle;
 }
 
 .Producer-Row p {
@@ -27,13 +34,8 @@
   background-color: white;
 }
 
-.Producer-Row div {
-  display: inline-block;
-  height: inherit;
-}
-
 .Producer-Row .icon {
-  flex: 0 0 3rem;
+  width: 3rem;
 }
 
 .Producer-Row .icon img {
@@ -42,13 +44,13 @@
 }
 
 .Producer-Row .name {
-  flex: 0 1 15rem;
+  width: 15rem;
   text-align: left;
   margin-left: .5rem;
 }
 
 .Producer-Row .summary {
-  flex: 0 1 25rem;
+  width: 25rem;
   text-align: left;
 }
 
@@ -60,4 +62,9 @@
   .Producer-Row .summary {
     display: inline-block;
   }
+}
+
+.Producer-Row .date {
+  width: 8rem;
+  text-align: right;
 }
