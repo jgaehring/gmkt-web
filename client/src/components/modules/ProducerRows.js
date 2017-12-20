@@ -41,3 +41,23 @@ export function RowDate(props) {
     </div>
   )
 }
+
+export function RowSummary(props) {
+  const shortSum = shortenString(props.summary, props.maxLength);
+  const summary = () => !props.maxLength ? props.summary : shortSum;
+  return (
+    <div className="summary">
+      <p>
+        {summary()}
+      </p>
+    </div>
+  )
+}
+
+function shortenString(string, max) {
+  if (string.length > max) {
+    return string.slice(0,max - 1) + "...";
+  } else {
+    return string;
+  }
+}
