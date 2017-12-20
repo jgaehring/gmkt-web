@@ -9,7 +9,7 @@ import {
   RowSummary } from 'modules/ProducerList';
 import ProducerDays from 'producers/ProducerDays';
 
-export default function ProducersList(props) {
+export default function AllProducersList(props) {
   return (
     <Section>
       <ProducerList>

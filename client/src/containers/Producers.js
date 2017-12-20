@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import Spinner from 'modules/Spinner';
 import Section from 'modules/Section';
 import ProducersHeader from 'producers/ProducersHeader';
-import ProducersList from 'producers/ProducersList';
+import AllProducersList from 'producers/AllProducersList';
 import ProfileHeader from 'producers/ProfileHeader';
 import ProductPresences from 'producers/ProductPresences';
 
@@ -143,7 +143,7 @@ class AllProducers extends Component {
       return (
         <div>
           <ProducersHeader />
-          <ProducersList currentProducers={this.state.currentProducers}/>
+          <AllProducersList currentProducers={this.state.currentProducers}/>
         </div>
       )
     }
