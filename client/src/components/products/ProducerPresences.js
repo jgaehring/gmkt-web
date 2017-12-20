@@ -1,31 +1,23 @@
 import React from 'react';
 import Section from 'modules/Section';
 import {
+  ProducerList,
+  ListHeading,
   ProducerRow,
   RowIcon,
   RowName,
-  RowDate } from 'modules/ProducerRows'
+  RowDate } from 'modules/ProducerList'
 
 // Renders a list of all producers who have sold the product in the last week
 export default function ProducerPresences(props) {
   const cutKeys = (p) => p.producer_id + "_" + p.date;
   return (
     <Section>
-      <div className="Producer-List">
-        <header>
-          <h2>Recently Sold By</h2>
-          <div className="Producer-Row heading">
-            <div className="icon">
-              <p>Type</p>
-            </div>
-            <div className="name">
-              <p>Name</p>
-            </div>
-            <div className="date">
-              <p>Date</p>
-            </div>
-          </div>
-        </header>
+      <ProducerList>
+        <ListHeading
+          heading={"Recently Sold By"}
+          subheading={"subheading"}
+          colHeadings={["TYPE", "NAME", "DATE"]} />
         {
           props.presences.map( p =>
             <ProducerRow key={cutKeys(p)} id={p.producer_id} >
@@ -35,7 +27,7 @@ export default function ProducerPresences(props) {
             </ProducerRow>
           )
         }
-      </div>
+      </ProducerList>
     </Section>
   )
 }

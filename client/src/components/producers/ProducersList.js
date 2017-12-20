@@ -1,30 +1,20 @@
 import React from 'react';
 import Section from 'modules/Section';
 import {
+  ProducerList,
+  ListHeading,
   ProducerRow,
   RowIcon,
   RowName,
-  RowSummary } from 'modules/ProducerRows';
+  RowSummary } from 'modules/ProducerList';
 import ProducerDays from 'producers/ProducerDays';
 
 export default function ProducersList(props) {
   return (
     <Section>
-      <div className="Producer-List">
-        <div className="Producer-Row heading">
-          <div className="icon">
-            <p>Type</p>
-          </div>
-          <div className="name">
-            <p>Name</p>
-          </div>
-          <div className="summary">
-            <p>Product Summary</p>
-          </div>
-          <div className="Producer-Days">
-            <p>Days</p>
-          </div>
-        </div>
+      <ProducerList>
+        <ListHeading
+          colHeadings={["TYPE", "NAME", "SUMMARY", "DAYS"]} />
         {
           props.currentProducers.map( p =>
             <ProducerRow key={p.id} id={p.id}>
@@ -35,7 +25,7 @@ export default function ProducersList(props) {
             </ProducerRow>
           )
         }
-      </div>
+      </ProducerList>
     </Section>
   )
 }
