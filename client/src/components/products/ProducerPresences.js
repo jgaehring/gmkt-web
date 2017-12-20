@@ -12,6 +12,20 @@ export default function ProducerPresences(props) {
   return (
     <Section>
       <div className="Producer-List">
+        <header>
+          <h2>Recently Sold By</h2>
+          <div className="Producer-Row heading">
+            <div className="icon">
+              <p>Type</p>
+            </div>
+            <div className="name">
+              <p>Name</p>
+            </div>
+            <div className="date">
+              <p>Date</p>
+            </div>
+          </div>
+        </header>
         {
           props.presences.map( p =>
             <ProducerRow key={cutKeys(p)} id={p.producer_id} >
