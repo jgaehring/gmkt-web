@@ -1,9 +1,9 @@
-.Producer-List {
+.Todays-Producers {
   display: inline-flex;
   flex-flow: row wrap;
 }
 
-.Producer-List h2 {
+.Todays-Producers h2 {
   flex: 0 0 100%;
   margin-bottom: 2rem;
 }

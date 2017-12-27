@@ -34,7 +34,7 @@ function Producer(props) {
 function Producers(props) {
   if (props.producers.length > 0) {
     return (
-      <Section className="Producer-List">
+      <Section className="Todays-Producers">
         <h2>{props.headingText}</h2>
         {
           props.producers.map(producer => <Producer

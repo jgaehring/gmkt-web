@@ -68,3 +68,43 @@
   width: 8rem;
   text-align: right;
 }
+
+.Producer-Row .toggle {
+  height: 3rem;
+  width: 3rem;
+}
+
+.Producer-Row .chevron {
+  margin: 1rem;
+}
+@media (min-width: 750px) {
+  .Producer-Row .summary {
+    display: inline-block;
+  }
+}
+
+.Producer-Row .chevron-down:hover {
+  animation: .3s chevron-down ease-in-out;
+}
+
+@keyframes chevron-down {
+  50% {
+    transform: translateY(.25rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
+
+.Producer-Row .chevron-up:hover {
+  animation: .3s chevron-up ease-in-out;
+}
+
+@keyframes chevron-up {
+  50% {
+    transform: translateY(-.25rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
