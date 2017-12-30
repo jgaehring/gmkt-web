@@ -34,19 +34,13 @@ class ProducerProfile extends Component {
     unsortedProducts.forEach(product => {
       if (!product.variety_of_id && varietiesByProduct.indexOf(product) === -1) {
         varietiesByProduct.push({
-          id: product.id,
-          name: product.name,
-          type: product.type,
+          ...product,
           varieties: []
         })
       } else if (product.variety_of_id) {
         varietiesByProduct.forEach(parentProduct => {
           if (product.variety_of_id === parentProduct.id) {
-            parentProduct.varieties.push({
-              id: product.id,
-              name: product.name,
-              type: product.type
-            })
+            parentProduct.varieties.push({...product})
           }
         })
       }

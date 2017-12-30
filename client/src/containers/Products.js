@@ -105,8 +105,7 @@ class ProductProfile extends Component {
           loading: false,
           // concat each response onto the previous state as it comes in
           presences: prevState.presences.concat({
-            date: presence.date,
-            producer_id: presence.producer_id,
+            ...presence,
             producerInfo: data.producer
           })
         }))
