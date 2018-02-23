@@ -6,7 +6,7 @@ import {
   Row,
   RowIcon,
   RowName,
-  RowDate } from 'modules/ProducerList'
+  RowDate } from 'modules/List'
 
 // Renders a list of all producers who have sold the product in the last week
 export default function ProducerPresences(props) {

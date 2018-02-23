@@ -6,7 +6,7 @@ import {
   Row,
   RowIcon,
   RowName,
-  RowSummary } from 'modules/ProducerList';
+  RowSummary } from 'modules/List';
 import ProducerDays from 'producers/ProducerDays';
 
 export default function AllProducersList(props) {

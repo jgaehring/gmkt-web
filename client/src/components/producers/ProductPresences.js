@@ -7,7 +7,7 @@ import {
   ChildRow,
   RowIcon,
   RowName,
-  withToggle } from 'modules/ProducerList'
+  withToggle } from 'modules/List'
 
 export default function ProductPresences(props) {
   const subheading = () => (

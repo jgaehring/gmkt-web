@@ -4,14 +4,14 @@ import Moment from 'react-moment';
 import ChevronDown from 'react-icons/lib/fa/chevron-down';
 import ChevronUp from 'react-icons/lib/fa/chevron-up';
 import getTypeIcon from 'media/product-types/getTypeIcon';
-import './ProducerList.css'
+import './List.css'
 
 /**
   * LIST
 **/
 export function List(props) {
   return (
-    <div className="Producer-List">
+    <div className="List">
       {props.children}
     </div>
   )
