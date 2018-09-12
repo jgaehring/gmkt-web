@@ -6,11 +6,11 @@ import Header, {
   Details,
   DetailRow,
 } from 'modules/Header';
-import getTypeIcon from 'media/product-types/getTypeIcon.js';
+import parseProductType from 'utils/parseProductType.js';
 
 function getProductImage(pic, type) {
   if (pic === undefined) {
-    return getTypeIcon(type);
+    return parseProductType(type).icon;
   } else {
     return pic;
   }

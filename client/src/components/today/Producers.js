@@ -4,11 +4,11 @@ import 'today/Producers.css'
 import {Link} from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 import Thumbnail from 'modules/Thumbnail';
-import getTypeIcon from 'media/product-types/getTypeIcon.js';
+import parseProductType from 'utils/parseProductType.js';
 
 function getProducerImage(pic, type) {
   if (pic === undefined) {
-    return getTypeIcon(type);
+    return parseProductType(type).icon;
   } else {
     return pic;
   }

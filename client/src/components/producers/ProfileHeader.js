@@ -6,7 +6,7 @@ import Header, {
   Details,
   DetailRow,
 } from 'modules/Header';
-import getTypeIcon from 'media/product-types/getTypeIcon';
+import parseProductType from 'utils/parseProductType';
 import WebIcon from 'react-icons/lib/md/public'
 import TwitterIcon from 'react-icons/lib/fa/twitter'
 import FacebookIcon from 'react-icons/lib/fa/facebook'
@@ -15,34 +15,9 @@ import ProducerDays from 'producers/ProducerDays'
 
 function getProducerImage(pic, type) {
   if (pic === undefined) {
-    return getTypeIcon(type);
+    return parseProductType(type).icon;
   } else {
     return pic;
-  }
-}
-
-function getTypeName(typeNum) {
-  switch (typeNum) {
-    case 0:
-      return "Orchard"
-    case 1:
-      return "Vegetable Farm"
-    case 2:
-      return "Dairy"
-    case 3:
-      return "Bakery"
-    case 4:
-      return "Livestock / Poultry Farm"
-    case 5:
-      return "Fishery"
-    case 6:
-      return "Preserves"
-    case 7:
-      return "Beverages"
-    case 8:
-      return "Plants"
-    default:
-      return "Local Producer"
   }
 }
 
@@ -112,9 +87,9 @@ function ProfileHeader(props) {
             <ProducerDays seasons={props.producer.seasons}/>
           </DetailRow>
           <DetailRow>
-            <h4>Product Type</h4>
-            <img className="small-type-icon" src={getTypeIcon(type)} alt="type" />
-            <p>{(getTypeName(type))}</p>
+            <h4>Producer Type</h4>
+            <img className="small-type-icon" src={parseProductType(type).icon} alt="type" />
+            <p>{(parseProductType(type).producer)}</p>
           </DetailRow>
         </Details>
       </HeaderInfo>

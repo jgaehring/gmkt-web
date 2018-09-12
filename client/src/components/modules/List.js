@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Moment from 'react-moment';
 import ChevronDown from 'react-icons/lib/fa/chevron-down';
 import ChevronUp from 'react-icons/lib/fa/chevron-up';
-import getTypeIcon from 'media/product-types/getTypeIcon';
+import parseProductType from 'utils/parseProductType';
 import './List.css'
 
 /**
@@ -71,7 +71,7 @@ export function Row(props) {
 // Renders the icon for the producer's main_type or product's type.
 // Pass type={null} to render no icon.
 export function RowIcon(props) {
-  const iconUrl = getTypeIcon(props.type);
+  const iconUrl = parseProductType(props.type).icon;
   const imgEl = () => <img src={iconUrl} alt="type" />;
   return (
     <div className="icon">
