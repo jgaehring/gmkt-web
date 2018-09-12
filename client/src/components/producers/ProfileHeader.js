@@ -1,13 +1,17 @@
 import React from 'react';
-import Header from 'modules/Header';
-import Section from 'modules/Section';
+import Header, {
+  HeaderImage,
+  HeaderInfo,
+  MainInfo,
+  Details,
+  DetailRow,
+} from 'modules/Header';
 import getTypeIcon from 'media/product-types/getTypeIcon';
 import WebIcon from 'react-icons/lib/md/public'
 import TwitterIcon from 'react-icons/lib/fa/twitter'
 import FacebookIcon from 'react-icons/lib/fa/facebook'
 import './ProfileHeader.css'
 import ProducerDays from 'producers/ProducerDays'
-import logo from 'media/GrowNYC-Circle-large-2065px.png';
 
 function getProducerImage(pic, type) {
   if (pic === undefined) {
@@ -86,39 +90,34 @@ function ProfileHeader(props) {
   const type = props.producer.main_type;
   const imgURL = getProducerImage(pic, type);
   return (
-    <Header className="Producer-Profile">
-      <Section className="header-section">
-        <div className="header-image">
-          <img src={imgURL} alt="Producer" />
-        </div>
-        <div className="header-info">
-          <div className="producer-info">
-            <img className="logo" src={logo} alt="logo" />
-            <h2>{props.producer.name}</h2>
-            <p>{props.producer.city}, {props.producer.state}</p>
-            <div className="connect">
-              <Website producer={props.producer} />
-              <Twitter producer={props.producer} />
-              <Facebook producer={props.producer} />
-            </div>
+    <Header className="Profile-Header">
+      <HeaderImage imgURL={imgURL} alt="Producer" />
+      <HeaderInfo>
+        <MainInfo>
+          <h2>{props.producer.name}</h2>
+          <p>{props.producer.city}, {props.producer.state}</p>
+          <div className="connect">
+            <Website producer={props.producer} />
+            <Twitter producer={props.producer} />
+            <Facebook producer={props.producer} />
           </div>
-          <div className="profile-details">
-            <div id="product-summary" className="detail-row">
-              <h4>Product Summary</h4>
-              <p>{props.producer.product_summary}</p>
-            </div>
-            <div className="detail-row">
-              <h4>Days</h4>
-              <ProducerDays seasons={props.producer.seasons}/>
-            </div>
-            <div className="detail-row">
-              <h4>Product Type</h4>
-              <img className="small-type-icon" src={getTypeIcon(type)} alt="type" />
-              <p>{(getTypeName(type))}</p>
-            </div>
-          </div>
-        </div>
-      </Section>
+        </MainInfo>
+        <Details>
+          <DetailRow id="product-summary">
+            <h4>Product Summary</h4>
+            <p>{props.producer.product_summary}</p>
+          </DetailRow>
+          <DetailRow>
+            <h4>Days</h4>
+            <ProducerDays seasons={props.producer.seasons}/>
+          </DetailRow>
+          <DetailRow>
+            <h4>Product Type</h4>
+            <img className="small-type-icon" src={getTypeIcon(type)} alt="type" />
+            <p>{(getTypeName(type))}</p>
+          </DetailRow>
+        </Details>
+      </HeaderInfo>
     </Header>
   )
 };
