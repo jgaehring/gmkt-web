@@ -1,6 +1,11 @@
 import React from 'react';
-import Header from 'modules/Header';
-import Section from 'modules/Section';
+import Header, {
+  HeaderImage,
+  HeaderInfo,
+  MainInfo,
+  Details,
+  DetailRow,
+} from 'modules/Header';
 import getTypeIcon from 'media/product-types/getTypeIcon.js';
 
 function getProductImage(pic, type) {
@@ -11,16 +16,21 @@ function getProductImage(pic, type) {
   }
 }
 
-function ProfileHeader(props) {
-  const pic = props.product.pic_url;
-  const type = props.product.type;
+function ProfileHeader({ product }) {
+  const pic = product.pic_url;
+  const type = product.type;
   const imgURL = getProductImage(pic, type);
   return (
     <Header>
-      <Section>
-        <h1>{props.product.name}</h1>
-        <img src={imgURL} alt="Product" />
-      </Section>
+      <HeaderImage imgURL={imgURL}  alt="Product"/>
+      <HeaderInfo>
+        <MainInfo>
+          <h2>{product.name}</h2>
+        </MainInfo>
+        <Details>
+          <DetailRow><p>Some details about{product.name}</p></DetailRow>
+        </Details>
+      </HeaderInfo>
     </Header>
   )
 };
