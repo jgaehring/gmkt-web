@@ -99,9 +99,17 @@ function ProfileHeader({ product }) {
   const pic = product.pic_url;
   const type = product.type;
   const imgURL = getProductImage(pic, type);
-  const season = product.season_from && product.season_to
-    ? (<p>{`Available from ${parseMonth(product.season_from).name}`
-      + ` to ${parseMonth(product.season_to).name}`}</p>)
+  const season = 
+    (product.season_from && product.season_to)
+    ? (<DetailRow>
+      <h4>In Season</h4>
+      <p>
+        {
+          `${parseMonth(product.season_from).name} to `
+          + `${parseMonth(product.season_to).name}`
+        }
+      </p>
+    </DetailRow>)
     : null;
   return (
     <Header>
@@ -112,8 +120,15 @@ function ProfileHeader({ product }) {
         </MainInfo>
         <Details>
           <DetailRow>
-            {season}
+            <h4>Product Type</h4>
+            <img 
+              className="small-type-icon" 
+              src={parseProductType(product.type).icon} 
+              alt="type" 
+            />
+            <p>{parseProductType(product.type).name}</p>
           </DetailRow>
+          {season}
         </Details>
       </HeaderInfo>
     </Header>
