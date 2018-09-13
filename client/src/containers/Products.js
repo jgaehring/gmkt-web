@@ -88,7 +88,25 @@ class ProductProfile extends Component {
         product: data.product,
         varieties: data.varieties,
       })
+      if (data.product.variety_of_id) {
+        this.fetchParentProduct(data.product.variety_of_id);
+      }
     })
+  }
+  
+  fetchParentProduct(id) {
+    fetch(`/api/v1/products/${id}`)
+      .then(resp => resp.json())
+      .then((data) => {
+        const { name, type } = data.product
+        this.setState({
+          parentProduct: {
+            id,
+            name,
+            type,
+          }
+        })
+      })
   }
 
   // Fetches the list of all product presences for the past week; presences are added to state via `fetchProducerInfo()`
@@ -147,7 +165,10 @@ class ProductProfile extends Component {
     } else {
       return (
         <div>
-          <ProfileHeader product={this.state.product}/>
+          <ProfileHeader 
+            product={this.state.product}
+            parentProduct={this.state.parentProduct}
+          />
           <ProducerPresences presences={this.state.presences}/>
           { 
             (this.state.varieties !== undefined)

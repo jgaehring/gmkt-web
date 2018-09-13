@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Header, {
   HeaderImage,
   HeaderInfo,
@@ -17,7 +18,7 @@ function getProductImage(pic, type) {
   }
 }
 
-function ProfileHeader({ product }) {
+function ProfileHeader({ product, parentProduct }) {
   const pic = product.pic_url;
   const type = product.type;
   const imgURL = getProductImage(pic, type);
@@ -31,6 +32,15 @@ function ProfileHeader({ product }) {
           + `${parseMonth(product.season_to).name}`
         }
       </p>
+    </DetailRow>)
+    : null;
+  const varietyOf = 
+    (parentProduct)
+    ? (<DetailRow>
+      <h4>Variety of</h4>
+      <Link to={`/products/${parentProduct.id}`}>
+        <p>{parentProduct.name}</p>
+      </Link>
     </DetailRow>)
     : null;
   return (
@@ -51,6 +61,7 @@ function ProfileHeader({ product }) {
             <p>{parseProductType(product.type).name}</p>
           </DetailRow>
           {season}
+          {varietyOf}
         </Details>
       </HeaderInfo>
     </Header>
