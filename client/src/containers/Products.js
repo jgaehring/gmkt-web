@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import Spinner from 'modules/Spinner';
 import ProductsHeader from 'products/ProductsHeader';
 import ProfileHeader from 'products/ProfileHeader';
@@ -14,7 +14,9 @@ export default class Products extends Component {
     return (
       <div>
         <Route exact path='/products' component={AllProducts}/>
-        <Route path='/products/:id' component={ProductProfile}/>
+        {/* Make sure to use withRouter HOC so links in Product Profile
+        pages can link to other Product Profiles. */}
+        <Route path='/products/:id' component={withRouter(ProductProfile)}/>
       </div>
     )
   }
