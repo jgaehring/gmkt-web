@@ -4,6 +4,7 @@ import Spinner from 'modules/Spinner';
 import ProductsHeader from 'products/ProductsHeader';
 import ProfileHeader from 'products/ProfileHeader';
 import ProducerPresences from 'products/ProducerPresences';
+import Varieties from 'products/Varieties';
 
 /**
   * PRODUCTS: Contains all routing for pages in the `/products` path
@@ -82,7 +83,8 @@ class ProductProfile extends Component {
     .then((data) => {
       this.setState({
         loading: false,
-        product: data.product
+        product: data.product,
+        varieties: data.varieties,
       })
     })
   }
@@ -142,6 +144,14 @@ class ProductProfile extends Component {
         <div>
           <ProfileHeader product={this.state.product}/>
           <ProducerPresences presences={this.state.presences}/>
+          { 
+            (this.state.varieties !== undefined)
+              ? (<Varieties
+                varieties={this.state.varieties}
+                name={this.state.product.name}
+                 />)
+              : null
+          }
         </div>
       )
     }
