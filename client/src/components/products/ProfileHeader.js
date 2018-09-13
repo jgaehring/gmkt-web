@@ -53,12 +53,15 @@ function ProfileHeader({ product, parentProduct }) {
         <Details>
           <DetailRow>
             <h4>Product Type</h4>
-            <img 
-              className="small-type-icon" 
-              src={parseProductType(product.type).icon} 
-              alt="type" 
-            />
-            <p>{parseProductType(product.type).name}</p>
+            <p>
+              <img 
+                className="small-type-icon" 
+                src={parseProductType(product.type).icon} 
+                alt="type" 
+              />
+              &nbsp;
+              {parseProductType(product.type).name}
+            </p>
           </DetailRow>
           {season}
           {varietyOf}
