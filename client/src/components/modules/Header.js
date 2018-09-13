@@ -6,7 +6,7 @@ import logo from 'media/GrowNYC-Circle-large-2065px.png';
 
 function Header(props) {
   return (
-    <div>
+    <div className={props.className} id={props.id}>
       <MainNav className="sticky-nav" />
       <div className="hero">
         <MainNav />
@@ -20,9 +20,9 @@ function Header(props) {
   )
 }
 
-export function HeaderImage({ imgURL, alt }) {
+export function HeaderImage({ imgURL, alt, className }) {
   return (
-    <div className="header-image">
+    <div className={`header-image ${className}`}>
       <img src={imgURL} alt={alt}/>
     </div>
   )
@@ -47,16 +47,16 @@ export function MainInfo(props) {
 
 export function Details(props) {
   return (
-    <div className="profile-details">
+    <div className="details">
       {props.children}
     </div>
   )
 }
 
-export function DetailRow(props) {
+export function DetailRow({className, children}) {
   return (
-    <div className="detail-row">
-      {props.children}
+    <div className={`detail-row ${className}`}>
+      {children}
     </div>
   )
 }

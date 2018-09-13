@@ -1,0 +1,33 @@
+#Products-Header .header-info {
+  flex: 0 0 60%;
+  margin: 6rem 0;
+}
+
+#Products-Header .header-image {
+  flex: 0 0 30%;
+}
+
+.big-logo {
+  align-items: center;
+}
+
+.big-logo img {
+  max-width: 18rem;
+}
+
+#Products-Header .detail-row:hover {
+  background-color: rgba(25, 75, 50, 0.25);
+  border-radius: 1.5rem;
+  cursor: pointer;
+}
+#Products-Header .selected {
+  border-radius: 1.5rem;
+  background-color: rgba(25, 75, 50, 0.25);
+}
+#Products-Header .detail-row h3 {
+  margin-top: 1rem;
+}
+#Products-Header .detail-row img {
+  height: 3rem;
+  margin: .25rem;
+}

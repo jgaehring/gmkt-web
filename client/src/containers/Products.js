@@ -26,8 +26,25 @@ class AllProducts extends Component {
   constructor() {
     super()
     this.state = {
-      loading: false
+      loading: false,
+      currentType: 1,
     }
+  }
+  
+  fetchProducts() {
+    fetch(`/api/v1/market_day/products?type=${this.state.currentType}`)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          loading: false,
+          currentProducts: data.products
+        })
+      })
+      
+  }
+  
+  componentDidMount() {
+    this.fetchProducts()
   }
 
   render() {
@@ -36,7 +53,7 @@ class AllProducts extends Component {
     } else {
       return (
         <div>
-          <ProductsHeader />
+          <ProductsHeader selection={this.state.currentType}/>
         </div>
       )
     }
