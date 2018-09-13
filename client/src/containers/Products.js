@@ -94,8 +94,11 @@ class ProductProfile extends Component {
     fetch('/api/v1/products/' + this.state.id + '?presences')
     .then(resp => resp.json())
     .then(data => {
-      const filteredPresences = this.filterPresences(data.product.presences);
-      return filteredPresences.map(this.fetchProducerInfo);
+      if (data.product.presences !== undefined) {
+        const filteredPresences = this.filterPresences(data.product.presences);
+        return filteredPresences.map(this.fetchProducerInfo);
+      }
+      return
     })
   }
 
