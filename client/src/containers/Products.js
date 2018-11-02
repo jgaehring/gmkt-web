@@ -7,6 +7,7 @@ import ProfileHeader from 'products/ProfileHeader';
 import ProducerPresences from 'products/ProducerPresences';
 import ProductPresences from 'producers/ProductPresences';
 import Varieties from 'products/Varieties';
+import sortVaritiesByProduct from 'utils/sortVarietiesByProduct'
 
 /**
   * PRODUCTS: Contains all routing for pages in the `/products` path
@@ -32,7 +33,7 @@ class AllProducts extends Component {
     super()
     this.state = {
       loading: false,
-      currentType: 1,
+      currentType: 0,
       products: [],
     }
   }
@@ -43,7 +44,7 @@ class AllProducts extends Component {
       .then(data => {
         this.setState({
           loading: false,
-          products: this.sortVaritiesByProduct(data.products),
+          products: sortVaritiesByProduct(data.products),
         })
       })
   }
@@ -53,25 +54,6 @@ class AllProducts extends Component {
       currentType: index,
     })
     this.fetchProducts();
-  }
-
-  sortVaritiesByProduct(unsortedProducts) {
-    let varietiesByProduct = [];
-    unsortedProducts.forEach(product => {
-      if (!product.variety_of_id && varietiesByProduct.indexOf(product) === -1) {
-        varietiesByProduct.push({
-          ...product,
-          varieties: []
-        })
-      } else if (product.variety_of_id) {
-        varietiesByProduct.forEach(parentProduct => {
-          if (product.variety_of_id === parentProduct.id) {
-            parentProduct.varieties.push({...product})
-          }
-        })
-      }
-    });
-    return varietiesByProduct;
   }
 
   componentDidMount() {

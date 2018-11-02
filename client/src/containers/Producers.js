@@ -6,6 +6,7 @@ import ProducersHeader from 'producers/ProducersHeader';
 import AllProducersList from 'producers/AllProducersList';
 import ProfileHeader from 'producers/ProfileHeader';
 import ProductPresences from 'producers/ProductPresences';
+import sortVaritiesByProduct from 'utils/sortVarietiesByProduct'
 
 class ProducerProfile extends Component {
   constructor(props) {
@@ -29,32 +30,13 @@ class ProducerProfile extends Component {
       })
   }
 
-  sortVaritiesByProduct(unsortedProducts) {
-    let varietiesByProduct = [];
-    unsortedProducts.forEach(product => {
-      if (!product.variety_of_id && varietiesByProduct.indexOf(product) === -1) {
-        varietiesByProduct.push({
-          ...product,
-          varieties: []
-        })
-      } else if (product.variety_of_id) {
-        varietiesByProduct.forEach(parentProduct => {
-          if (product.variety_of_id === parentProduct.id) {
-            parentProduct.varieties.push({...product})
-          }
-        })
-      }
-    });
-    return varietiesByProduct;
-  }
-
   fetchProducts() {
     fetch('/api/v1/market_day/products?producer_id=' + this.state.id)
       .then(resp => resp.json())
       .then((data) => {
         if (data.products.length > 0) {
           this.setState({
-            products: this.sortVaritiesByProduct(data.products),
+            products: sortVaritiesByProduct(data.products),
             productDate: data.date
           })
         } else {
@@ -63,7 +45,7 @@ class ProducerProfile extends Component {
             .then(resp => resp.json())
             .then(data => {
               this.setState({
-                products: this.sortVaritiesByProduct(data.products),
+                products: sortVaritiesByProduct(data.products),
                 productDate: prevDate
               })
             })
