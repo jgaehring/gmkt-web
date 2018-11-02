@@ -33,7 +33,7 @@ class AllProducts extends Component {
       currentType: 1,
     }
   }
-  
+
   fetchProducts() {
     fetch(`/api/v1/market_day/products?type=${this.state.currentType}`)
       .then(resp => resp.json())
@@ -43,9 +43,14 @@ class AllProducts extends Component {
           currentProducts: data.products
         })
       })
-      
   }
-  
+
+  selectType(index) {
+    this.setState({
+      currentType: index,
+    })
+  }
+
   componentDidMount() {
     this.fetchProducts()
   }
@@ -56,7 +61,10 @@ class AllProducts extends Component {
     } else {
       return (
         <div>
-          <ProductsHeader selection={this.state.currentType}/>
+          <ProductsHeader
+            selection={this.state.currentType}
+            selectType={this.selectType.bind(this)}
+          />
         </div>
       )
     }
@@ -93,7 +101,7 @@ class ProductProfile extends Component {
       }
     })
   }
-  
+
   fetchParentProduct(id) {
     fetch(`/api/v1/products/${id}`)
       .then(resp => resp.json())
@@ -165,12 +173,12 @@ class ProductProfile extends Component {
     } else {
       return (
         <div>
-          <ProfileHeader 
+          <ProfileHeader
             product={this.state.product}
             parentProduct={this.state.parentProduct}
           />
           <ProducerPresences presences={this.state.presences}/>
-          { 
+          {
             (this.state.varieties !== undefined)
               ? (<Varieties
                 varieties={this.state.varieties}

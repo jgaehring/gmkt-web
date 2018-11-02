@@ -53,9 +53,9 @@ export function Details(props) {
   )
 }
 
-export function DetailRow({className, children}) {
+export function DetailRow({className, children, onClick}) {
   return (
-    <div className={`detail-row ${className}`}>
+    <div className={`detail-row ${className}`} onClick={onClick}>
       {children}
     </div>
   )
