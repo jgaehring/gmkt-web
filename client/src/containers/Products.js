@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {Route, withRouter} from 'react-router-dom';
+import Section from 'modules/Section';
 import Spinner from 'modules/Spinner';
 import ProductsHeader from 'products/ProductsHeader';
 import ProfileHeader from 'products/ProfileHeader';
 import ProducerPresences from 'products/ProducerPresences';
+import ProductPresences from 'producers/ProductPresences';
 import Varieties from 'products/Varieties';
 
 /**
@@ -31,16 +33,17 @@ class AllProducts extends Component {
     this.state = {
       loading: false,
       currentType: 1,
+      products: [],
     }
   }
 
   fetchProducts() {
-    fetch(`/api/v1/market_day/products?type=${this.state.currentType}`)
+    fetch(`/api/v1/market_day/products`)
       .then(resp => resp.json())
       .then(data => {
         this.setState({
           loading: false,
-          currentProducts: data.products
+          products: this.sortVaritiesByProduct(data.products),
         })
       })
   }
@@ -49,6 +52,26 @@ class AllProducts extends Component {
     this.setState({
       currentType: index,
     })
+    this.fetchProducts();
+  }
+
+  sortVaritiesByProduct(unsortedProducts) {
+    let varietiesByProduct = [];
+    unsortedProducts.forEach(product => {
+      if (!product.variety_of_id && varietiesByProduct.indexOf(product) === -1) {
+        varietiesByProduct.push({
+          ...product,
+          varieties: []
+        })
+      } else if (product.variety_of_id) {
+        varietiesByProduct.forEach(parentProduct => {
+          if (product.variety_of_id === parentProduct.id) {
+            parentProduct.varieties.push({...product})
+          }
+        })
+      }
+    });
+    return varietiesByProduct;
   }
 
   componentDidMount() {
@@ -56,6 +79,8 @@ class AllProducts extends Component {
   }
 
   render() {
+    const products = this.state.products
+      .filter(product => product.type === this.state.currentType)
     if (this.state.loading) {
       return <Spinner />
     } else {
@@ -65,6 +90,10 @@ class AllProducts extends Component {
             selection={this.state.currentType}
             selectType={this.selectType.bind(this)}
           />
+          {/* <AllProductsByType currentType={this.state.currentType}/> */}
+          <Section>
+            <ProductPresences products={products} date={null}/>
+          </Section>
         </div>
       )
     }

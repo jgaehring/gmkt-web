@@ -28,7 +28,7 @@ function ProductsHeader({ selection, selectType }) {
       />
       <HeaderInfo>
         <div className="main-info">
-          <h1>Current Products</h1>
+          <h1>Products</h1>
           <p>Browse by Category</p>
         </div>
         <Details>
