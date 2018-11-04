@@ -35,6 +35,7 @@ class AllProducts extends Component {
       loading: false,
       currentType: 0,
       products: [],
+      date: null,
     }
   }
 
@@ -42,10 +43,23 @@ class AllProducts extends Component {
     fetch(`/api/v1/market_day/products`)
       .then(resp => resp.json())
       .then(data => {
-        this.setState({
-          loading: false,
-          products: sortVaritiesByProduct(data.products),
-        })
+        if (data.products.length > 0) {
+          this.setState({
+            loading: false,
+            products: sortVaritiesByProduct(data.products),
+            date: data.date,
+          });
+        } else {
+          fetch(`/api/v1/market_day/products?date=${data.previous_date}&round=down`)
+            .then(resp => resp.json())
+            .then(data => {
+              this.setState({
+                loading: false,
+                products: sortVaritiesByProduct(data.products),
+                date: data.date,
+              });
+            });
+        }
       })
   }
 
@@ -53,7 +67,6 @@ class AllProducts extends Component {
     this.setState({
       currentType: index,
     })
-    this.fetchProducts();
   }
 
   componentDidMount() {
@@ -74,7 +87,7 @@ class AllProducts extends Component {
           />
           {/* <AllProductsByType currentType={this.state.currentType}/> */}
           <Section>
-            <ProductPresences products={products} date={null}/>
+            <ProductPresences products={products} date={this.state.date}/>
           </Section>
         </div>
       )
