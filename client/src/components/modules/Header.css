@@ -1,0 +1,90 @@
+.hero {
+  /*background-image: url('../../media/gorzynski2.png');*/
+  background-color: #8cac88;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 100;
+  position: relative;
+}
+
+.logo {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  width: 15rem;
+}
+
+@media (min-width: 1200px) {
+  .logo {
+    margin-top: 10rem;
+  }
+}
+
+.hero, .hero a {
+  color: white;
+}
+
+input {
+  height: 2em;
+  width: 50%;
+  font-size: 1rem;
+  opacity: 0.6;
+  border-radius: 0.25rem;
+  border-style: none;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.header-section {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+@media (min-width: 650px) {
+  .header-section {
+    display: inline-flex;
+    flex-direction: row;
+  }
+
+  .main-info .logo {
+    margin-top: 0px;
+  }
+
+}
+
+.header-image, .header-info {
+  flex: 0 0 46%;
+  margin: 0 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-image img {
+  width: 100%;
+}
+
+.header-info .logo {
+  width: 20%;
+  margin: -10% 0 1rem 0;
+}
+
+.main-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.details {
+  text-align: left;
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+}
+.detail-row {
+  flex: 0 0 45%;
+  margin-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+.detail-row img {
+  float: left;
+}
+

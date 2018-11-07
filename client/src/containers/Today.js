@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from 'modules/Header'
 import TodayHeader from 'today/TodayHeader'
 import Attendance from 'today/Attendance';
 import Seasonal from 'today/Seasonal';
@@ -22,16 +23,6 @@ class Today extends Component {
         loading: true,
       }
     };
-  }
-
-  setProductState(allProducts, seasonalProducts) {
-    this.setState({
-      products: {
-        loading: false,
-        allProducts: allProducts,
-        seasonalProducts: seasonalProducts
-      }
-    })
   }
 
   getTodaysDate() {
@@ -86,23 +77,15 @@ class Today extends Component {
   };
 
   fetchSeasonalProducts() {
-    fetch('/api/v1/market_day/products')
+    fetch('/api/v1/products?seasonal=new,peak')
     .then(resp => resp.json())
     .then((data) => {
-      if (data.products.length > 0) {
-        const allProducts = data.products;
-        const seasonalProducts = allProducts.filter( (product) => product.seasonal );
-        this.setProductState(allProducts, seasonalProducts);
-      } else {
-        const prevDate = data.previous_date;
-        fetch('/api/v1/market_day/products?date=' + prevDate)
-        .then(resp => resp.json())
-        .then((data) => {
-          const allProducts = data.products.filter(product => product.seasonal);
-          const seasonalProducts = allProducts.filter( (product) => product.seasonal );
-          this.setProductState(allProducts, seasonalProducts)
-        })
-      }
+      this.setState({
+        products: {
+          loading: false,
+          seasonalProducts: data.products
+        }
+      })
     });
   }
 
@@ -151,9 +134,13 @@ class Today extends Component {
         return (
           <div className="Today">
 
-            <TodayHeader
-              marketToday={this.state.market.marketToday}
-              date={this.state.market.date} />
+            <Header>
+              <TodayHeader
+                marketToday={this.state.market.marketToday}
+                date={this.state.market.date} />
+
+            </Header>
+
 
             <Seasonal
               className="Seasonal"

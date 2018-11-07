@@ -1,38 +1,19 @@
-.Producer-List {
-  padding-top: 2rem;
-  padding-bottom: 4rem;
+.Todays-Producers {
+  display: inline-flex;
+  flex-flow: row wrap;
 }
 
-.Producer-List h2 {
+.Todays-Producers h2 {
+  flex: 0 0 100%;
   margin-bottom: 2rem;
 }
 
-.Producer-List .Thumbnail {
-  height: 10rem;
+.Producer {
+  flex: 0 0 25%;
 }
 
-@media (min-width: 600px) {
-  .Producer-List .Thumbnail {
-    height: 12rem;
-  }
-}
-@media (min-width: 800px) {
-  .Producer-List .Thumbnail {
-    height: 15rem;
-  }
-}
-@media (min-width: 1200px) {
-  .Producer-List .Thumbnail {
-    height: 12rem;
-  }
-}
-@media (min-width: 1500px) {
-  .Producer-List .Thumbnail {
-    height: 15rem;
-  }
-}
-@media (min-width: 2400px) {
-  .Producer-List .Thumbnail {
-    height: 24rem;
+@media (min-width: 900px) {
+  .Producer {
+    flex-basis: 16.6666667%;
   }
 }

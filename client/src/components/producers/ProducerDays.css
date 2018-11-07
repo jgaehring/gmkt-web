@@ -1,0 +1,27 @@
+.Producer-Days {
+  width: 6rem;
+}
+
+.Producer-Days li {
+  display: inline-block;
+  line-height: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: .75rem;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+}
+
+.Producer-Days .mon {
+  background-color: #00999f;
+}
+.Producer-Days .wed {
+  background-color: #4e8645;
+}
+.Producer-Days .fri {
+  background-color: #d51969;
+}
+.Producer-Days .sat {
+  background-color: #f7931e;
+}

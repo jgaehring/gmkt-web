@@ -1,0 +1,111 @@
+.List {
+  display: inline-block;
+  width: auto;
+}
+
+.Producer-Row {
+  display: block;
+  height: 3rem;
+  padding: .25rem .5rem;
+  border-radius: 1.5rem;
+}
+
+.Producer-Row div {
+  display: inline-block;
+  height: inherit;
+  vertical-align: middle;
+}
+
+.Producer-Row p {
+  line-height: 1.5rem;
+  margin-top: .75rem;
+}
+
+.Producer-Row:hover {
+  background-color: #eee;
+}
+
+.Producer-Row.heading p {
+  font-family: 'Headland One', serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.Producer-Row.heading:hover {
+  background-color: white;
+}
+
+.Producer-Row .icon {
+  width: 3rem;
+}
+
+.Producer-Row .icon img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.Producer-Row .name {
+  width: 15rem;
+  text-align: left;
+  margin-left: .5rem;
+}
+
+.Producer-Row .summary {
+  width: 25rem;
+  text-align: left;
+}
+
+.Producer-Row .summary {
+  display: none;
+}
+
+@media (min-width: 750px) {
+  .Producer-Row .summary {
+    display: inline-block;
+  }
+}
+
+.Producer-Row .date {
+  width: 8rem;
+  text-align: right;
+}
+
+.Producer-Row .toggle {
+  height: 3rem;
+  width: 3rem;
+}
+
+.Producer-Row .chevron {
+  margin: 1rem;
+}
+@media (min-width: 750px) {
+  .Producer-Row .summary {
+    display: inline-block;
+  }
+}
+
+.Producer-Row .chevron-down:hover {
+  animation: .3s chevron-down ease-in-out;
+}
+
+@keyframes chevron-down {
+  50% {
+    transform: translateY(.25rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
+
+.Producer-Row .chevron-up:hover {
+  animation: .3s chevron-up ease-in-out;
+}
+
+@keyframes chevron-up {
+  50% {
+    transform: translateY(-.25rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}

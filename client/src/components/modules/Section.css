@@ -1,5 +1,7 @@
 section {
   text-align: center;
-  width: 80%;
+  width: 95%;
+  max-width: 1200px;
   display: inline-block;
+  margin: 3rem 2.5%;
 }
